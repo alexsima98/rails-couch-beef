@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      1 of 3
+    </div>
+    <div class="col-6">
+      <% @lobbies.each do |l| %>
+        <%= l.title %>
+      <% end %>
+    </div>
+    <div class="col">
+      3 of 3
+    </div>
+  </div>
