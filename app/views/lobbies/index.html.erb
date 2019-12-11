@@ -5,16 +5,13 @@
     <%= link_to "Play now", "#", class: "btn btn-flat" %>
   </div>
 </div>
-<div class="container">
-  <div class="row">
-    <div class="col">
-    </div>
-    <div class="col-6">
-      <% @lobbies.each do |l| %>
-        <%= l.title %>
+<div class="container d-flex justify-content-center" style="background-color: #000000;">
+
+    <div class="">
+      <% @lobbies.each do |lobby| %>
+      <%= render 'shared/card', lobby: lobby %>
       <% end %>
     </div>
-    <div class="col">
-    </div>
-  </div>
+
 </div>
+
