@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#home'
-  resources :lobbies, only: [:index, :show] do
+  root to: 'lobbies#index'
+  resources :lobbies, only: [:show] do
     resources :sessions, only: [:index, :show, :new, :create]
   end
 
