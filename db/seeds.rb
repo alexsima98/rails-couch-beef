@@ -15,8 +15,8 @@ nick = User.create(username: "nick", email: "nick@gmail.com", password: "123456"
 roy = User.create(username: "roy", email: "roy@gmail.com", password: "123456")
 alex = User.create(username: "Bigpopabeef", email: "alex@gmail.com", password: "123456")
 
-fifa = Lobby.new(title: "fifa")
-cod = Lobby.new(title: "cod")
-fortnite = Lobby.new(title: "fortnite")
+fifa = Lobby.create(title: "fifa")
+cod = Lobby.create(title: "cod")
+fortnite = Lobby.create(title: "fortnite")
 
 puts "seeding finished"
