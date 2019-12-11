@@ -1,7 +1,8 @@
-  <div class="card lobby_card mt-3" style="width: 18rem">
-    <%= image_tag lobby.photo, class:"card-img-top"%>
+  <div class="card-lobby mt-4" style="border-radius: 20px;">
+    <div class="card-image" style="background: rgb(2,0,36); background-image:linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(0,0,0,1) 2%, rgba(0,0,0,0) 50%), url(<%= asset_path lobby.photo %>); border-radius:10px; height:250px; background-size:cover; background-position: center;">
+    </div>
     <div class="card-body card-body-lobby">
-      <h5 class="card-title"><%= lobby.title %></h5>
-      <p class="card-text">Join or create a game</p>
+      <h5><%= lobby.title %></h5>
+      <p>Join or create a game</p>
     </div>
   </div>
