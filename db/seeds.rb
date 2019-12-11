@@ -12,7 +12,7 @@ Lobby.destroy_all
 puts "Seeding..."
 
 nick = User.create(username: "nick", email: "nick@gmail.com", password: "123456")
-roy = User.create(username: "roy", email: "roy@gmail.com", password: "123456")
+roy = User.create(username: "roy", email: "roy@gmail.com", password: "123456", remote_avatar_url: "https://kitt.lewagon.com/placeholder/users/krokrob")
 alex = User.create(username: "Bigpopabeef", email: "alex@gmail.com", password: "123456")
 
 
