@@ -9,4 +9,6 @@ class User < ApplicationRecord
   has_many :lobbies, through: :user_lobbies
   has_many :user_invites
   has_many :sessions
+
+  mount_uploader :avatar, PhotoUploader
 end
