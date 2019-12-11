@@ -11,7 +11,7 @@
       <li>be a good sport</li>
     </ul>
   </div>
-  <%= @message.content %>
+  <p><%= "#{@user.username}: #{@message.content}" %></p>
 </div>
 
 <%= simple_form_for Message.new do |f| %>
