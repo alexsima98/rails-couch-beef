@@ -1,0 +1,5 @@
+<%= simple_form_for [@lobby, @session] do |f| %>
+  <%= f.input :platform, collection: ["Xbox One", "Playstation 4"], label: "Choose your couch type(platform)" %>
+  <%= f.input :price, label: "Choose a beefer wage in $"  %>
+  <%= f.button :submit %>
+<% end %>
