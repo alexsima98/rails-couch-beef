@@ -1,0 +1,41 @@
+.beef-card{
+  position: relative;
+  width: 80%;
+  height: 80px;
+  background-color: transparent;
+  padding-left: 20px;
+  margin-left: 20px;
+}
+
+.beef-card-info {
+  display: flex;
+  justify-content: space-between;
+  background-color: grey;
+  height: 80px;
+  line-height: 50px;
+  padding: 10px;
+  padding-left: 30px;
+}
+
+.beef-card-link {
+  text-align: right;
+
+}
+
+.beef-card-link a {
+  background-color: orange;
+  text-decoration: none;
+  padding: 8px 24px;
+}
+
+.beef-card-avatar {
+  display: flex;
+  position: absolute;
+  top: -50px;
+  left: -10px;
+  img {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+  }
+}
