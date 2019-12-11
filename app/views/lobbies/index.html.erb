@@ -1,15 +1,17 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
-      1 of 3
-    </div>
-    <div class="col-6">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_url 'couch.jpg' %>);">
+  <div class="container">
+    <h1>Earn <strong>money</strong> doing what you <strong>love</strong> most!</h1>
+    <p>Find opponents across the globe and start playing right now</p>
+    <%= link_to "Play now", "#", class: "btn btn-flat" %>
+  </div>
+</div>
+<div class="container d-flex justify-content-center" style="background-color: #000000;">
+
+    <div class="">
       <% @lobbies.each do |lobby| %>
       <%= render 'shared/card', lobby: lobby %>
       <% end %>
     </div>
-    <div class="col">
-      3 of 3
-    </div>
-  </div>
+
+</div>
 

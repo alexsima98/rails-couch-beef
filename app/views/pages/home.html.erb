@@ -1,2 +1,7 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_url 'couch.jpg' %>);">
+  <div class="container">
+    <h1>Earn <strong>money</strong> doing what you <strong>love</strong> most!</h1>
+    <p>Find opponents across the globe and start playing right now</p>
+    <%= link_to "Play now", "#", class: "btn btn-flat" %>
+  </div>
+</div>
