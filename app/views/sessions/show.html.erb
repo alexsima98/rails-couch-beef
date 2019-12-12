@@ -12,9 +12,10 @@
     </ul>
   </div>
   <p><%#= "#{@message.user.username}: #{@message.content}" %></p>
-</div>
 
-<%= simple_form_for Message.new do |f| %>
-  <%= f.input :content%>
-  <%= f.button :submit %>
-<% end %>
+
+  <%= simple_form_for Message.new do |f| %>
+    <%= f.input :content%>
+    <%= f.button :submit %>
+  <% end %>
+</div>
