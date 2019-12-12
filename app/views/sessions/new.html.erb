@@ -1,13 +1,18 @@
-<%= simple_form_for [@lobby, @session] do |f| %>
-  <%= f.input :platform, collection: ["Xbox One", "Playstation 4"], label: "Choose your couch type(platform)" %>
-  <%= f.input :price, label: "Choose a beefer wage in $"  %>
-  <%= f.input :star_level, collection:["4.5 stars and under", "4 stars and under", "3.5 stars and under" ], label: " Select the star level of the teams you for your session "%>
-  <%= f.input :team_type, collection:["International teams only", "Club teams only","Ultimate team" ], label: " What kind of teams would you like to use? "%>
-  <%= f.input :half_length, collection:["4 minutes", "5 minutes","6 minutes", "7 minutes", "8 minutes" ], label: " Choose the length of each half "%>
-  <%= f.input :legacy_depending, collection:["Allowed", "Not allowed"], label: "Legacy defending? "%>
-  <%= f.input :match_type, collection:["Best of 5", "Best of 3", "Single game"], label: "How many games to settle the beef? "%>
-  <%= f.input :custom_rules, label: "Your personal rules for the game."%>
+<div class="container">
+  <%= simple_form_for [@lobby, @session] do |f| %>
+  <div class="form_inputs">
+      <%= f.input :platform, collection: ["Xbox One", "Playstation 4"], label: "Choose your couch type(platform)" %>
+      <%= f.input :price, label: "Choose a beefer wage in $"  %>
+      <%= f.input :star_level, collection:["4.5 stars and under", "4 stars and under", "3.5 stars and under" ], label: " Select the star level of the teams you for your session "%>
+      <%= f.input :team_type, collection:["International teams only", "Club teams only","Ultimate team" ], label: " What kind of teams would you like to use? "%>
+      <%= f.input :half_length, collection:["4 minutes", "5 minutes","6 minutes", "7 minutes", "8 minutes" ], label: " Choose the length of each half "%>
+      <%= f.input :legacy_depending, collection:["Allowed", "Not allowed"], label: "Legacy defending? "%>
+      <%= f.input :match_type, collection:["Best of 5", "Best of 3", "Single game"], label: "How many games to settle the beef? "%>
+      <%= f.input :custom_rules, label: "Your personal rules for the game."%>
+  </div>
+  <div class="call_to_action">
+    <%= f.button :submit %>
+  </div>
 
-
-  <%= f.button :submit %>
-<% end %>
+  <% end %>
+</div>
