@@ -4,27 +4,13 @@ class MessagesController < ApplicationController
     @message.user = current_user
     @message.session = @session
     if @message.save
-      redirect_to lobby_session(@lobby,@session)
-    else
-      render :new
+      redirect_to lobby_session_path(@session, @message)
     end
   end
 
    private
 
   def message_params
-    params.require(:session).permit(:price, :win_price, :platform)
+    params.require(:message).permit(:content, :user)
   end
 end
-
-
-  def create
-    @session = Session.new(session_params)
-    @session.user = current_user
-    @session.lobby = @lobby
-    if @session.save
-      redirect_to lobby_session(@lobby,@session)
-    else
-      render :new
-    end
-  end
