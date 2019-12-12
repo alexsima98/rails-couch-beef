@@ -7,6 +7,23 @@
   margin-left: 20px;
 }
 
+.cardc {
+  margin-top:30px;
+}
+
+.title{
+  color: white;
+    font-family: 'Lilita One', cursive;
+  font-size: 31px;
+}
+
+.session {
+  margin-bottom: 80px;
+  color:white;
+  font-size: 20px;
+    font-family: 'Lilita One', cursive;
+}
+
 .beef-card-info {
   display: flex;
   color: white;
@@ -19,6 +36,7 @@
   padding: 20px;
   align-items: center;
   p {
+    margin-left: 20px;
     margin-top: 6px;
   }
 }
@@ -26,12 +44,13 @@
 .beef-card-link {
   text-align: right;
   margin-top: 8px;
+  font-weight: bold;
 }
 
 .beef-card-link a {
   background-color: #f88a2b;
   text-decoration: none;
-  color: white;
+  color: black;
   padding: 10px 24px;
 }
 
