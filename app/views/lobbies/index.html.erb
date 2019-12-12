@@ -2,12 +2,12 @@
   <div class="container">
     <h1>Earn <strong>money</strong> doing what you <strong>love</strong> most!</h1>
     <p>Find opponents across the globe and start playing right now</p>
-    <%= link_to "Play now", "#", class: "btn btn-flat" %>
+    <a class="btn btn-flat" id="button">Play now!</a>
   </div>
 </div>
 <div class="container d-flex justify-content-center" style="margin-top: 100px;" >
 
-    <div class="">
+    <div class="lobbies" id="lobby">
       <% @lobbies.each do |lobby| %>
       <%= render 'shared/card', lobby: lobby %>
       <% end %>
