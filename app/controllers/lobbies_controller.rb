@@ -6,6 +6,6 @@ class LobbiesController < ApplicationController
 
   def show
     @lobby = Lobby.find(params[:id])
-    @sessions = Session.select { |s| s.lobby_id == @lobby.id }
+    @sessions = Session.where(lobby_id: @lobby.id)
   end
 end
