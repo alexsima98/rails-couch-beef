@@ -1,13 +1,14 @@
-var d = document.getElementById("lobby");
-var topPos = d.offsetTop;
+const d = document.getElementById("lobby");
+const topPos = d.offsetTop;
 
-var element = document.getElementById("button")
 
-element.addEventListener("click", myFunction);
-
-function myFunction() {
+const scrollToIndex = () => {
   window.scrollTo({
   top: topPos,
   behavior: 'smooth'
 });
 }
+
+export { scrollToIndex }
+
+
