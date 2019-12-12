@@ -7,6 +7,4 @@ class Session < ApplicationRecord
 
 validates :price, presence: true
 validates :platform, presence: true
-
-
 end

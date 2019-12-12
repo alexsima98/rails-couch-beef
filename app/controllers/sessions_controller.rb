@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   def show
     @sessions = Session.find(params[:id])
+    @lobby = Lobby.find(params[:lobby_id])
   end
 
   def new
@@ -14,6 +15,7 @@ class SessionsController < ApplicationController
     @session.user = current_user
     @session.lobby = @lobby
     if @session.save
+
       redirect_to lobby_session_path(@lobby, @session)
     else
       render :new

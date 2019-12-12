@@ -8,6 +8,7 @@
 
 User.destroy_all
 Lobby.destroy_all
+Session.destroy_all
 
 puts "Seeding..."
 
@@ -20,5 +21,14 @@ fifa = Lobby.create(title: "fifa", photo: "fifa2.png")
 cod = Lobby.create(title: "cod", photo: "cod.jpg")
 fortnite = Lobby.create(title: "fortnite", photo: "fortnite.jpg")
 
+first_session = Session.create(price: 15, platform: "Playstation 4" )
+second_session =Session.create(price: 20, platform: "Playstation 4" )
+third_session = Session.create(price: 12, platform: "Playstation 4" )
+
+
+
 
 puts "seeding finished"
+validates :price, presence: true
+validates :platform, presence: true
+validates :user, presence: true
