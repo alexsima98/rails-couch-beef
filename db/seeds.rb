@@ -38,4 +38,3 @@ UserInvite.create(session: third_session, user: roy)
 puts "#{UserInvite.all.count} UserInvites created"
 
 puts "seeding finished"
-
