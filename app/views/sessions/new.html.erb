@@ -1,6 +1,7 @@
 <%= simple_form_for [@lobby, @session] do |f| %>
   <%= f.input :platform, collection: ["Xbox One", "Playstation 4"], label: "Choose your couch type(platform)" %>
   <%= f.input :price, label: "Choose a beefer wage in $"  %>
+  <%= f.input :star_level, collection:["4.5 stars and under", "4 stars and under", "3.5 stars and under" ] label: " Select the star level of the teams you for your session "%>
 
   <%= f.button :submit %>
 <% end %>
