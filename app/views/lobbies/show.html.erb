@@ -1,13 +1,12 @@
-<div class="game-banner">
-  <div class="banner-info">
-    <h1><%= @lobby.title.capitalize! %></h1>
-    <%= link_to "create a game", new_lobby_session_path(@lobby) %>
-  </div>
+<div class="game-banner" style="background-image:linear-gradient(0deg, rgba(0,0,0,1) 2%, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 50%), url(<%= asset_url @lobby.photo %>);">
 </div>
-
-<h1><%= @lobby.title.capitalize! %></h1>
+<div class="container">
+<h1 class="title"><%= @lobby.title.capitalize! %></h1>
+<h3 class="session">1 v 1 sessions</h3>
+<%= @sessions.each do |s| %>
 <%= render 'shared/beefcard' %>
-
+<% end %>
+</div>
 
 
 
