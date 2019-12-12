@@ -29,6 +29,3 @@ third_session = Session.create(price: 12, platform: "Playstation 4" )
 
 
 puts "seeding finished"
-validates :price, presence: true
-validates :platform, presence: true
-validates :user, presence: true

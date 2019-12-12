@@ -23,6 +23,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    @session = Session.find(params[:id])
+    @session.delete
   end
 
   private
