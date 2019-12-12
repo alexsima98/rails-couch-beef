@@ -1,6 +1,6 @@
 .beef-card{
   position: relative;
-  width: 80%;
+  width: 90%;
   height: 80px;
   background-color: transparent;
   padding-left: 20px;
@@ -9,33 +9,48 @@
 
 .beef-card-info {
   display: flex;
+  color: white;
+  border: solid;
+  border-color: #f88a2b;
   justify-content: space-between;
-  background-color: grey;
-  height: 80px;
+  background-color: black;
+  height: 70px;
   line-height: 50px;
-  padding: 10px;
-  padding-left: 30px;
+  padding: 20px;
+  align-items: center;
+  p {
+    margin-top: 6px;
+  }
 }
 
 .beef-card-link {
   text-align: right;
-
+  margin-top: 8px;
 }
 
 .beef-card-link a {
-  background-color: orange;
+  background-color: #f88a2b;
   text-decoration: none;
-  padding: 8px 24px;
+  color: white;
+  padding: 10px 24px;
 }
 
 .beef-card-avatar {
   display: flex;
   position: absolute;
-  top: -50px;
-  left: -10px;
+  top: -48px;
+  left: -13px;
+  color: #f88a2b;
+  align-items: center;
+  h2 {
+    font-size: 20px;
+    margin-left: 8px;
+  }
+
   img {
     height: 70px;
     width: 70px;
     border-radius: 50%;
+    background-color: black;
   }
 }

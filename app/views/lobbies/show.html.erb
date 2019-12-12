@@ -1,23 +1,12 @@
 <div class="game-banner">
   <div class="banner-info">
-    <h1><%= @lobby.title %></h1>
-    <p>some info</p>
+    <h1><%= @lobby.title.capitalize! %></h1>
     <%= link_to "create a game", new_lobby_session_path(@lobby) %>
   </div>
 </div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<div class="container">
-  <div class="beef-card">
-    <div class="beef-card-info"><p>rules</p><p>time</p><h2>price</h2></div>
-    <div class="beef-card-link"><a href="lobby_session_path(@lobby, @sessions)">Join Game</a></div>
-    <div class="beef-card-avatar"><%= cl_image_tag current_user.avatar %><h3>username</h3></div>
-  </div>
-</div>
+
+<h1><%= @lobby.title.capitalize! %></h1>
+<%= render 'shared/beefcard' %>
 
 
 
