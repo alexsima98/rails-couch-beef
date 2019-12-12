@@ -3,7 +3,8 @@
   <h3><%= @lobby.title%> -- 1 VS 1</h3>
   <%= render 'shared/sessionbeefcard' %>
 
-  <div><h5>GAME RULES</h5>
+  <div class="rules">
+    <h5>GAME RULES</h5>
     <ul>
       <li>Don't fuck around</li>
       <li>No descrimination</li>
@@ -12,9 +13,9 @@
     </ul>
   </div>
   <p><%#= "#{@message.user.username}: #{@message.content}" %></p>
-</div>
 
 <%= simple_form_for Message.new do |f| %>
   <%= f.input :content%>
   <%= f.button :submit %>
 <% end %>
+</div>
