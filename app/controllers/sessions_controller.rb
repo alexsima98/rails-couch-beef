@@ -11,10 +11,12 @@ class SessionsController < ApplicationController
 
   def create
     @session = Session.new(session_params)
+    @lobby = Lobby.find(params[:lobby_id])
     @session.user = current_user
     @session.lobby = @lobby
     if @session.save
-      redirect_to lobby_session(@lobby,@session)
+
+      redirect_to lobby_session_path(@lobby, @session)
     else
       render :new
     end

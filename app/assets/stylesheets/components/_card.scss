@@ -1,5 +1,22 @@
 .card-body-lobby {
-  background-color: white;
-  color: black;
+  font-family: 'Lilita One', cursive;
+  color: white;
   text-align: center;
+  background-color: black;
+}
+
+.card-lobby {
+  width: 18rem;
+}
+
+.card-lobby h5 {
+  font-family: 'Lilita One', cursive;
+}
+.card-image {
+  // background: rgb(2,0,36);
+  height: 200px;
+}
+
+body {
+  background-color: black;
 }
