@@ -13,9 +13,10 @@ Lobby.destroy_all
 
 puts "Seeding..."
 
-nick = User.create(username: "nick", email: "nick@gmail.com", password: "123456", remote_avatar_url: "https://kitt.lewagon.com/placeholder/users/NicholasJardine")
-roy = User.create(username: "roy", email: "roy@gmail.com", password: "123456", remote_avatar_url: "https://kitt.lewagon.com/placeholder/users/Souyor")
-alex = User.create(username: "BigPoppaBeef", email: "alex@gmail.com", password: "123456", remote_avatar_url: "https://kitt.lewagon.com/placeholder/users/alexsima98")
+nick = User.create(username: "NickTheBeefer", email: "nick@gmail.com", password: "123456", remote_avatar_url: "https://kitt.lewagon.com/placeholder/users/NicholasJardine")
+roy = User.create(username: "WestBeef", email: "roy@gmail.com", password: "123456", remote_avatar_url: "https://kitt.lewagon.com/placeholder/users/Souyor")
+alex = User.create(username: "Beef&Riff", email: "alex@gmail.com", password: "123456", remote_avatar_url: "https://kitt.lewagon.com/placeholder/users/alexsima98")
+hamza = User.create(username: "BigPoppaBeef", email: "hamza@gmail.com", password: "123456", remote_avatar_url: "https://kitt.lewagon.com/placeholder/users/Hamzif")
 
 puts "#{User.all.count} users created"
 
@@ -25,9 +26,12 @@ fortnite = Lobby.create(title: "FORTNITE", photo: "fortnite.jpg")
 
 puts "#{Lobby.all.count} lobbies created"
 
-first_session = Session.create(user: roy, price: 15, platform: "Playstation 4", lobby: fifa)
+first_session = Session.create(user: roy, price: 15, platform: "Playstation 4", lobby: fortnite)
 second_session =Session.create(user: nick, price: 20, platform: "Playstation 4", lobby: cod)
-third_session = Session.create(user: alex, price: 12, platform: "Playstation 4", lobby: fortnite)
+third_session = Session.create(user: hamza, price: 12, platform: "Playstation 4", lobby: fifa)
+fourth_session = Session.create(user: alex, price: 20, platform: "Playstation 4", lobby: fifa)
+fifth_session = Session.create(user: roy, price: 5, platform: "Playstation 4", lobby: fifa)
+sixth_session = Session.create(user: nick, price: 50, platform: "Playstation 4", lobby: fifa)
 
 puts "#{Session.all.count} sessions created"
 
