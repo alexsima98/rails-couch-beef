@@ -1,7 +1,7 @@
 <div class="container cardc">
   <div class="beef-card">
     <div class="beef-card-info"><p>Main rules</p><h2><%= session.price %>$</h2></div>
-    <div class="beef-card-link"><a href="lobby_session_path(@lobby, @sessions)">Check beef</a></div>
+    <div class="beef-card-link"><%= link_to "Check beef", lobby_session_path(@lobby, session) %></div>
     <div class="beef-card-avatar"><%= cl_image_tag session.user.avatar %><h2><strong><%= session.user.username %></strong></h2></div>
   </div>
 </div>
