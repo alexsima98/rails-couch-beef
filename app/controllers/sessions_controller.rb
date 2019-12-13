@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   def show
     @lobby = Lobby.find(params[:lobby_id])
-    @sessions = Session.find(params[:id])
+    @session = Session.find(params[:id])
   end
 
   def new

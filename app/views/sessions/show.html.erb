@@ -12,9 +12,13 @@
       <li>-No descrimination</li>
     </ul>
   </div>
-  <p><%#= "#{@message.user.username}: #{@message.content}" %></p>
+  <% @session.messages.each do |message| %>
+    <p>
+      <%= "#{cl_image_tag message.user.avatar} #{message.user.username}: #{message.content}" %>
+    </p>
+  <% end %>
   <div class="messenger-tab">
-  <%= simple_form_for Message.new do |f| %>
+  <%= simple_form_for [@session, Message.new] do |f| %>
     <%= f.input :content, label: "Type a message here"%>
     </div>
   <div>
