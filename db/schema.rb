@@ -23,13 +23,12 @@ ActiveRecord::Schema.define(version: 2019_12_12_133851) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.string "messageble_type"
-    t.bigint "messageble_id"
+    t.bigint "session_id"
     t.bigint "user_id"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["messageble_type", "messageble_id"], name: "index_messages_on_messageble_type_and_messageble_id"
+    t.index ["session_id"], name: "index_messages_on_session_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
@@ -87,6 +86,7 @@ ActiveRecord::Schema.define(version: 2019_12_12_133851) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "messages", "sessions"
   add_foreign_key "messages", "users"
   add_foreign_key "sessions", "lobbies"
   add_foreign_key "sessions", "users"
