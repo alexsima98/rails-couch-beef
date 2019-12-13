@@ -3,18 +3,39 @@
   <%= simple_form_for [@lobby, @session] do |f| %>
 
   <div class="form_inputs">
-      <%= f.input :platform, collection: ["Xbox One", "Playstation 4"], label: "Choose your couch type(platform)" %>
-      <%= f.input :price, label: "Choose a beefer wage in $"  %>
-      <%= f.input :star_level, collection:["4.5 stars and under", "4 stars and under", "3.5 stars and under" ], label: " Maximum team level (stars) "%>
-      <%= f.input :team_type, collection:["International teams only", "Club teams only","Ultimate team" ], label: " What kind of teams would you like to use? "%>
-      <%= f.input :half_length, collection:["4 minutes", "5 minutes","6 minutes", "7 minutes", "8 minutes" ], label: " Choose the length of each half "%>
-      <%= f.input :legacy_depending, collection:["Allowed", "Not allowed"], label: "Legacy defending? "%>
-      <%= f.input :match_type, collection:["Best of 5", "Best of 3", "Single game"], label: "How many games to settle the beef? "%>
-      <%= f.input :custom_rules, label: "Your personal rules for the game."%>
+    <div class="new-form-inputs">
+        <%= f.input :platform, collection: ["Xbox One", "Playstation 4"], label: "Choose your couch type(platform)" %>
+        <%= f.input :price, label: "Choose a beef wager (in $)"  %>
+
+        <div class="accordion" id="accordionExample">
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h2 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  Click here if you don't want to use the default rules
+                </button>
+              </h2>
+            </div>
+
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body">
+                A<%= f.input :star_level, collection:["Any", "4.5 stars and under", "4 stars and under", "3.5 stars and under" ], label: " Maximum team level (stars) "%>
+                <%= f.input :team_type, collection:["International teams only", "Club teams only","Ultimate team", "Any" ], label: " What kind of teams would you like to use? "%>
+                <%= f.input :half_length, collection:["4 min", "5 min","6 min", "7 min", "8 min" ], label: " Choose the length of each half "%>
+                <%= f.input :legacy_depending, collection:["Allowed", "Not allowed"], label: "Legacy defending? "%>
+                <%= f.input :match_type, collection:["Best of 5", "Best of 3", "Single game"], label: "How many games to settle the beef? "%>
+                <%= f.input :custom_rules, label: "Your personal rules for the game."%>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <%= f.button :submit, class: 'call_to_action btn-flat mt-5 w-100 btn-text-black' %>
+
+
+    </div>
   </div>
-  <div class="call_to_action btn-flat">
-    <%= f.button :submit %>
-  </div>
+
 
   <% end %>
 </div>
