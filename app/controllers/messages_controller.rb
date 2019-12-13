@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
     @message.user = current_user
     @message.session = @session
     if @message.save
-      redirect_to lobby_session_path(@session, @message)
+      redirect_to redirect_back(fallback_location: lobbies_index)
     end
   end
 
