@@ -3,19 +3,22 @@
   <h3><%= @lobby.title%> -- 1 VS 1</h3>
   <%= render 'shared/sessionbeefcard' %>
 
-  <div><h5>GAME RULES</h5>
-    <ul>
-      <li>Don't fuck around</li>
-      <li>No descrimination</li>
-      <li>if you fuck around you get banned</li>
-      <li>be a good sport</li>
+  <div class="custom-rules">
+    <h5>GAME RULES</h5>
+    <ul style="list-style-type: none;">
+      <li>-4.5 stars or less</li>
+      <li>-6 minutes a half</li>
+      <li>-Club teams only</li>
+      <li>-No descrimination</li>
     </ul>
   </div>
   <p><%#= "#{@message.user.username}: #{@message.content}" %></p>
-
-
+  <div class="messenger-tab">
   <%= simple_form_for Message.new do |f| %>
-    <%= f.input :content%>
-    <%= f.button :submit %>
+    <%= f.input :content, label: "Type a message here"%>
+    </div>
+  <div>
+    <%= f.submit "Send", class: 'messenger-button'%>
+  </div>
   <% end %>
 </div>
