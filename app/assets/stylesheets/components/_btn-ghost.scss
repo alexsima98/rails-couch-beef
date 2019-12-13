@@ -3,13 +3,13 @@
 .btn-flat-orange {
   color: black;
   font-weight: bold;
-  padding: 8px 24px;
-  border-radius: 4px;
+  padding: 12px 24px;
   background: #f88a2b;
-  transition: background 0.3s ease;
   text-align: center;
-  position: sticky;
-  top: 0;
+  position:fixed;
+  bottom:0;
+  right:0;
+  height:50px;
   width: 100%;
 }
 
