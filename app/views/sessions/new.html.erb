@@ -1,4 +1,7 @@
 <div class="container">
+  <%= link_to lobby_path(@lobby), class:"btn-back" do %>
+    <i class="fas fa-arrow-left"></i>
+  <% end %>
 
   <%= simple_form_for [@lobby, @session] do |f| %>
 
@@ -30,7 +33,7 @@
           </div>
         </div>
 
-        <%= f.button :submit, class: 'call_to_action btn-flat mt-5 w-100 btn-text-black' %>
+        <%= f.button :submit, class:"btn btn-flat-orange" %>
 
 
     </div>
