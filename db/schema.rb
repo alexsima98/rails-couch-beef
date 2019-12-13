@@ -40,12 +40,12 @@ ActiveRecord::Schema.define(version: 2019_12_12_133851) do
     t.string "platform"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "star_level"
-    t.string "team_type"
-    t.string "half_length"
-    t.string "legacy_depending"
+    t.string "star_level", default: "Any"
+    t.string "team_type", default: "Any"
+    t.string "half_length", default: "6 min"
+    t.string "legacy_depending", default: "Not allowed"
     t.text "custom_rules"
-    t.string "match_type"
+    t.string "match_type", default: "Single game"
     t.index ["lobby_id"], name: "index_sessions_on_lobby_id"
     t.index ["user_id"], name: "index_sessions_on_user_id"
   end

@@ -38,3 +38,38 @@ margin-bottom: 24px;
 font-size: 16px;
 margin: 16px;
 }
+
+.new-form-inputs{
+  padding: 24px;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+#collapseOne {
+background-color: black;
+}
+
+.btn-link {
+  text-align: left;
+  color: black;
+  background-color: #f88a2b;
+  padding:10px;
+
+  text-decoration: none;
+    &:hover {
+    text-decoration: none !important;
+    color: white !important;
+  }
+}
+
+#headingOne{
+  background-color: #f88a2b;
+}
+
+#accordionExample{
+  border: none;
+}
+
+.card-header:hover {
+  text-decoration: none;
+}
