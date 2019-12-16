@@ -13,7 +13,7 @@
     <div class="accordion" id="accordionExample">
       <h5 class="mb-0">
         <div class="d-flex justify-content-end">
-          <a class="" style="color: #f88a2b;" type="" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <a class="" style="color: white;" type="" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
             Find an opponent
           </a>
         </div>
@@ -31,18 +31,21 @@
        </div>
        <% end %>
      </div>
-
-  <div class="custom-rules border-top border-bottom pt-3 pb-3">
-    <h5>GAME RULES</h5>
-    <ul style="list-style-type: none;">
-      <li><div class="row"><div class="col-3">-4.5 stars or less</div></div></li>
-      <li>-6 minutes a half</li>
-      <li>-Club teams only</li>
-      <li>-No descrimination</li>
-      <li><% if @session.user_invites.any?  %>
-  <%= @session.user_invites.first.user.email %>
-<% end %></li>
-    </ul>
+  </div>
+  <div class="accordion custom-rules border-top border-bottom pt-3 pb-3 text-white" id="accordionExampl">
+     <a class="d-flex" style="color: white; font-size: 28px; padding: 8px; margin-bottom: 12px;" type="" data-toggle="collapse" data-target="#collapseOne2" aria-expanded="true" aria-controls="collapseOne">
+            Game rules
+          </a>
+      <div id="collapseOne2" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExampl">
+        <div class="card-body-rules">
+          <div class="row rules"><div class="col-8">Star level: </div><div class="col-4"><%= @session.star_level %></div></div>
+          <div class="row rules"><div class="col-8">Team type: </div><div class="col-4"><%= @session.team_type %></div></div>
+          <div class="row rules"><div class="col-8">Half length: </div><div class="col-4"><%= @session.half_length %></div></div>
+          <div class="row rules"><div class="col-8">Legacy defending: </div><div class="col-4"><%= @session.legacy_depending %></div></div>
+          <div class="row rules"><div class="col-8">Match type: </div><div class="col-4"><%= @session.match_type %></div></div>
+          <div class="row rules"><div class="col-8">Custom rules: </div><div class="col-4"><%= @session.custom_rules %></div></div>
+        </div>
+      </div>
   </div>
   <% @session.messages.each do |message| %>
     <div class="msg-body d-flex align-items-center">

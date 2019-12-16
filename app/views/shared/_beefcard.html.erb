@@ -1,6 +1,6 @@
 <div class="container card">
   <div class="beef-card">
-    <div class="beef-card-info"><p>Main rules</p><h2><%= session.price %>$</h2></div>
+    <div class="beef-card-info"><p><% if session.custom_rules? %> <%= "Custom rules" %> <% else %> <%=  "Main rules" %><% end %> </p><h2><%= session.price*2 %>$</h2></div>
     <div class="beef-card-link"><%= link_to "Check beef", lobby_session_path(@lobby, session) %></div>
     <div class="beef-card-avatar"><%= cl_image_tag session.user.avatar %><h2><strong><%= session.user.username %></strong></h2></div>
   </div>

@@ -1,6 +1,6 @@
 <div class="container">
   <div class="beef-card">
-    <div class="beef-card-info"><p>rules</p><h2><%= @session.price %>$</h2></div>
+    <div class="beef-card-info-s"><p>( entry: <%= @session.price %>$)</p><h2><%= @session.price*2 %>$</h2></div>
     <div class="beef-card-avatar"><%= cl_image_tag @session.user.avatar %><h3><%= @session.user.username %></h3></div>
   </div>
 </div>
