@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'dashboards/show'
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
@@ -13,7 +14,6 @@ Rails.application.routes.draw do
 
   resources :messages, only: :destroy
 
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get "/dashboard" , to: "dashboards#show"  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get "/components", to: "pages#components"
 end

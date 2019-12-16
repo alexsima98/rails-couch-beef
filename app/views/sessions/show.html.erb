@@ -28,7 +28,7 @@
     <%= f.submit "Send", class: 'messenger-button'%>
   </div>
   <% end %>
-  <a href="" class="btn btn-flat-orange"><strong>Join now</strong></a>
+  <%= link_to "Join now", restaurant_path(restaurant), class:"btn btn-flat-orange", data: { confirm: "The amount of #{@session.price}$ will be deducted from your account! Confirm?" } %>
 </div>
 
 

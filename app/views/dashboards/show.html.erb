@@ -1,0 +1,17 @@
+<div class="container text-white">
+<h1>Dashboards#show</h1>
+<div class="row">
+  <div class="col-6">
+    <h2>Active Beefs</h2>
+    <% @mysessions.each do |my| %>
+    <%= my.user %> <%= my.price %>
+    <% end %>
+  </div>
+  <div class="col-6">
+    <h3>Settled Beefs</h3>
+    <% @sessions.each do |s| %>
+    <%= s.user %> <% s.price %>
+    <% end %>
+  </div>
+</div>
+</div>

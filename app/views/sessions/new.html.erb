@@ -22,7 +22,7 @@
 
             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
               <div class="card-body">
-                A<%= f.input :star_level, collection:["Any", "4.5 stars and under", "4 stars and under", "3.5 stars and under" ], label: " Maximum team level (stars) "%>
+                <%= f.input :star_level, collection:["Any", "4.5 stars and under", "4 stars and under", "3.5 stars and under" ], label: " Maximum team level (stars) "%>
                 <%= f.input :team_type, collection:["International teams only", "Club teams only","Ultimate team", "Any" ], label: " What kind of teams would you like to use? "%>
                 <%= f.input :half_length, collection:["4 min", "5 min","6 min", "7 min", "8 min" ], label: " Choose the length of each half "%>
                 <%= f.input :legacy_depending, collection:["Allowed", "Not allowed"], label: "Legacy defending? "%>

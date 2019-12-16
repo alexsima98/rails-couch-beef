@@ -7,4 +7,22 @@ class Session < ApplicationRecord
 
   validates :price, presence: true
   validates :platform, presence: true
+
+  def self.defaultrules
+    {
+     star_level:"Any",
+     team_type:"Any",
+     half_length:"6 min",
+     legacy_depending:"Not allowed",
+     custom_rules:"",
+     match_type:"Single game"
+    }
+  end
+
+  def customrules?
+    attributes.any? do |key, value|
+      self.class.defaultrules[key] != value
+    end
+  end
 end
+
