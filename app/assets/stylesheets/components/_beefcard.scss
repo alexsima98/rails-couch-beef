@@ -37,8 +37,8 @@
   padding: 20px;
   align-items: center;
   p {
-    margin-left: 20px;
-    margin-top: 6px;
+    margin-top: 12px;
+    padding: 14px;
   }
 }
 
@@ -72,5 +72,23 @@
     width: 70px;
     border-radius: 50%;
     background-color: black;
+  }
+}
+
+.beef-card-info-s {
+  display: flex;
+  color: white;
+  border: solid;
+  border-width: 5px;
+  border-color: #f88a2b;
+  justify-content: space-between;
+  background-color: black;
+  height: 70px;
+  line-height: 50px;
+  padding: 20px;
+  align-items: center;
+  p {
+    margin-top: 12px;
+    padding: 14px;
   }
 }
