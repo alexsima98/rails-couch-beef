@@ -2,6 +2,9 @@ class SessionsController < ApplicationController
   def show
     @lobby = Lobby.find(params[:lobby_id])
     @session = Session.find(params[:id])
+    @user_invite = UserInvite.new
+    @users = User.all
+
   end
 
   def new

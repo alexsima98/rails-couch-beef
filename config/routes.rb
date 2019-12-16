@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   }
   root to: 'lobbies#index'
   resources :lobbies, only: [:show] do
-    resources :sessions, only: [:index, :show, :new, :create]
+    resources :sessions, only: [:index, :show, :new, :create] do
+      resources :user_invites, only: [:create, :update]
+    end
   end
 
   resources :sessions, only: [] do
