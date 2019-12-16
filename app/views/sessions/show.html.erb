@@ -1,10 +1,36 @@
 <div class="container mt-4">
+
+
 <%= link_to lobby_path(@lobby), class:"btn-back" do %>
     <i class="fas fa-arrow-left"></i>
   <% end %>
 
   <h3><%= @lobby.title%> -- 1 VS 1</h3>
   <%= render 'shared/sessionbeefcard' %>
+
+    <% if @session.user == current_user %>
+
+    <div class="accordion" id="accordionExample">
+      <h5 class="mb-0">
+        <div class="d-flex justify-content-end">
+          <a class="" style="color: #f88a2b;" type="" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Find an opponent
+          </a>
+        </div>
+      </h5>
+
+
+      <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="card-body">
+          <div class="add-friend-link">
+           <%= simple_form_for [@lobby, @session, @user_invite] do |f| %>
+           <%= f.input :user, collection: User.all, label_method: ->(user) { user.username }, label: "Choose opponent!" %>
+           <%= f.button :submit, class: "messenger-button" %>
+           <% end %>
+         </div>
+       </div>
+       <% end %>
+     </div>
 
   <div class="custom-rules border-top border-bottom pt-3 pb-3">
     <h5>GAME RULES</h5>
@@ -13,6 +39,9 @@
       <li>-6 minutes a half</li>
       <li>-Club teams only</li>
       <li>-No descrimination</li>
+      <li><% if @session.user_invites.any?  %>
+  <%= @session.user_invites.first.user.email %>
+<% end %></li>
     </ul>
   </div>
   <% @session.messages.each do |message| %>
@@ -31,4 +60,8 @@
   <%= link_to "Join now", restaurant_path(restaurant), class:"btn btn-flat-orange", data: { confirm: "The amount of #{@session.price}$ will be deducted from your account! Confirm?" } %>
 </div>
 
+
+<%#= @lobby.session.users.each do |user| %>
+
+<%#= @users.map do |user| user.username%>
 
