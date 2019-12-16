@@ -60,7 +60,7 @@
     <%= f.submit "Send", class: 'messenger-button'%>
   </div>
   <% end %>
-  <%= link_to "Join now", lobby_session_path(@lobby, @session), class:"btn btn-flat-orange", data: { confirm:"By pressing ok you agree with the rules. The #{@session.price}$ will be deducted from your account."} %>
+  <%= link_to "Join now", lobby_session_user_invites_path(@lobby, @session, {user_invite:{user:current_user.id}}), class:"btn btn-flat-orange", method: :post, data: { confirm: "The amount of #{@session.price}$ will be deducted from your account! Confirm?" } %>
 </div>
 
 

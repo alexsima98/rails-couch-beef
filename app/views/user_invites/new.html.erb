@@ -1,0 +1,2 @@
+ <%= simple_form_for [@session, @user_invite] do |f| %>
+ <%= f.input :half_length, collection:[User.all], label: "Who will you be playing?"
