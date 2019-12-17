@@ -9,4 +9,7 @@ class UserInvitesController < ApplicationController
     redirect_to lobby_session_path(@lobby, @session)
   end
 
+  def accept
+
+  end
 end
