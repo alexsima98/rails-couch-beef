@@ -23,7 +23,11 @@ Rails.application.routes.draw do
   get "/components", to: "pages#components"
 
   patch '/join', to: "sessions#joining_session"
+  patch "/accept", to: "user_invites#accept"
+  patch "/cancel", to: "user_invites#cancel"
+  patch "/decline", to: "user_invites#decline"
 
+  delete "/delete", to: "user_invite#destroy"
 end
 
 

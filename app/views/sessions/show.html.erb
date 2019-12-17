@@ -1,12 +1,22 @@
 <div class="container mt-4">
 
-
-<%= link_to lobby_path(@lobby), class:"btn-back" do %>
-    <i class="fas fa-arrow-left"></i>
+<div class="d-flex justify-content-between">
+  <div>
+  <%= link_to lobby_path(@lobby), class:"btn-back" do %>
+    <i class="fas fa-arrow-left" style="color: #f88a2b;"></i>
   <% end %>
+  </div>
+    <% if @session.user == current_user %>
+    <div class="mt-3 text-white">
+      <%= link_to "Cancel beef", session_path(@session), method: :delete, data: { confirm: "Are you sure?"} %>
 
-  <h3><%= @lobby.title%> -- 1 VS 1</h3>
-  <%= render 'shared/sessionbeefcard' %>
+    </div>
+  <% end %>
+  </div>
+
+  <div class="" style="margin-top: 40px;">
+    <%= render 'shared/sessionbeefcard' %>
+  </div>
 
     <% if @session.user == current_user %>
 
@@ -47,6 +57,7 @@
         </div>
       </div>
   </div>
+
   <% @session.messages.each do |message| %>
     <div class="msg-body d-flex align-items-center">
       <%= cl_image_tag message.user.avatar, class:"avatar-msg" %> <p id="message-txt"><strong><%= "#{message.user.username}"%></strong>: <%="#{message.content}" %></p>
@@ -55,15 +66,14 @@
   <div class="messenger-tab">
   <%= simple_form_for [@session, Message.new] do |f| %>
     <%= f.input :content, label: "Type a message here"%>
+  <div class="d-flex justify-content-end">
+      <%= f.submit "Send", class: 'messenger-button'%>
     </div>
-  <div class="d-flex justify-content-between">
-    <%= link_to "destroy session", lobby_session_path(@lobby, @session), method: :delete, data: { confirm: "Are you sure?"} %>
-    <%= f.submit "Send", class: 'messenger-button'%>
 
-  </div>
   <% end %>
+  </div>
 
   <% if @session.user != current_user %>
   <%= link_to "Join now", join_path(session_id: @session.id), class:"btn btn-flat-orange", method: :patch, data: { confirm: "The amount of #{@session.price}$ will be deducted from your account! Confirm?" } %>
   <% end %>
-</div>
+    </div>
