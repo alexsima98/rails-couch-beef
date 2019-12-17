@@ -63,7 +63,7 @@
   </div>
   <% end %>
 
-  <% if @session.user != current_user %>
+  <% if (@session.user != current_user ) && (@session.user_invites.all? { |invite| invite.user != current_user }) %>
   <%= link_to "Join now", lobby_session_user_invites_path(@lobby, @session, {user_invite:{user:current_user.id}}), class:"btn btn-flat-orange", method: :post, data: { confirm: "The amount of #{@session.price}$ will be deducted from your account! Confirm?" } %>
   <% end %>
 </div>
