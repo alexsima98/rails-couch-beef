@@ -80,14 +80,10 @@
 .beef-card-avatar-two {
   display: flex;
   position: absolute;
-  bottom: -44px;
+  bottom: -34px;
   right: -32px;
   color: #f88a2b;
   align-items: center;
-  h2 {
-    font-size: 20px;
-    margin-left: 8px;
-  }
 
   img {
     height: 70px;
@@ -96,6 +92,12 @@
     background-color: black;
   }
 }
+  #textx {
+    margin-top: 20px;
+    margin-right: 4px;
+    font-size: 1.75rem;
+    margin-left: 8px;
+  }
 
 
 .beef-card-info-s {
