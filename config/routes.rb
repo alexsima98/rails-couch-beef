@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :sessions, only: [:destroy]
+
   resources :sessions, only: [] do
     resources :messages, only: :create
   end
