@@ -1,13 +1,14 @@
 <div class="container text-white">
-<h1>Dashboards#show</h1>
   <h3>Pending requests on my sessions</h3>
-<div class="row">
+<div class="row d-flex align-items-center dashboard-card">
   <% @mysessions.each do |session|%>
-      <% if (session.user == current_user) && (session.user_invites.first == 'pending') %>
-    <div class="col-4">
-      <p>
-        <%= session.user_invites.first.user.username %>
-      </p>
+  <% if (session.user == current_user) && (session.user_invites.first == 'pending') %>
+    <div class="col-6">
+
+      <div class="beef-card-avatar-dashboard">
+        <%= cl_image_tag session.user_invites.first.user.avatar %>
+        <p><%= session.user_invites.first.user.username %></p>
+      </div>
     </div>
         <div class="col-4">
             <%= session.user_invites.first.status %>
