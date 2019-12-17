@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_16_103933) do
+ActiveRecord::Schema.define(version: 2019_12_16_171944) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2019_12_16_103933) do
     t.string "legacy_depending"
     t.text "custom_rules"
     t.string "match_type"
+    t.string "status", default: "pending"
     t.index ["lobby_id"], name: "index_sessions_on_lobby_id"
     t.index ["user_id"], name: "index_sessions_on_user_id"
   end

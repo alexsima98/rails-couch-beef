@@ -13,10 +13,10 @@ Lobby.destroy_all
 
 puts "Seeding..."
 
-nick = User.create(username: "NickTheBeefer", email: "nick@gmail.com", password: "123456", remote_avatar_url: "https://kitt.lewagon.com/placeholder/users/NicholasJardine")
-roy = User.create(username: "WestBeef", email: "roy@gmail.com", password: "123456", remote_avatar_url: "https://kitt.lewagon.com/placeholder/users/Souyor")
-alex = User.create(username: "Beef&Riff", email: "alex@gmail.com", password: "123456", remote_avatar_url: "https://kitt.lewagon.com/placeholder/users/alexsima98")
-hamza = User.create(username: "BigPoppaBeef", email: "hamza@gmail.com", password: "123456", remote_avatar_url: "https://kitt.lewagon.com/placeholder/users/Hamzif")
+nick = User.create(wallet: 1000, username: "NickTheBeefer", email: "nick@gmail.com", password: "123456", remote_avatar_url: "https://kitt.lewagon.com/placeholder/users/NicholasJardine")
+roy = User.create(wallet: 1000, username: "WestBeef", email: "roy@gmail.com", password: "123456", remote_avatar_url: "https://kitt.lewagon.com/placeholder/users/Souyor")
+alex = User.create(wallet: 1000, username: "Beef&Riff", email: "alex@gmail.com", password: "123456", remote_avatar_url: "https://kitt.lewagon.com/placeholder/users/alexsima98")
+hamza = User.create(wallet: 1000, username: "BigPoppaBeef", email: "hamza@gmail.com", password: "123456", remote_avatar_url: "https://kitt.lewagon.com/placeholder/users/Hamzif")
 
 puts "#{User.all.count} users created"
 

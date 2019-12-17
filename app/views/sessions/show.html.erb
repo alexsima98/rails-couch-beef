@@ -57,13 +57,13 @@
     <%= f.input :content, label: "Type a message here"%>
     </div>
   <div class="d-flex justify-content-between">
-    <%= link_to "destroy session", session_path(@session), method: :delete, data: { confirm: "Are you sure?"} %>
+    <%= link_to "destroy session", lobby_session_path(@lobby, @session), method: :delete, data: { confirm: "Are you sure?"} %>
     <%= f.submit "Send", class: 'messenger-button'%>
 
   </div>
   <% end %>
 
   <% if @session.user != current_user %>
-  <%= link_to "Join now", lobby_session_user_invites_path(@lobby, @session, {user_invite:{user:current_user.id}}), class:"btn btn-flat-orange", method: :post, data: { confirm: "The amount of #{@session.price}$ will be deducted from your account! Confirm?" } %>
+  <%= link_to "Join now", join_path(session_id: @session.id), class:"btn btn-flat-orange", method: :patch, data: { confirm: "The amount of #{@session.price}$ will be deducted from your account! Confirm?" } %>
   <% end %>
 </div>
