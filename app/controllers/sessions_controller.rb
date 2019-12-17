@@ -29,7 +29,6 @@ class SessionsController < ApplicationController
     @session = Session.find(params[:id])
     @session.destroy
     @session.user.wallet += @session.price
-    @session.user.save
     redirect_to lobby_path(@session.lobby)
   end
 
