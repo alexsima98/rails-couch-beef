@@ -8,4 +8,8 @@ class UserInvitesController < ApplicationController
     @user_invite.save
     redirect_to lobby_session_path(@lobby, @session)
   end
+
+  def accept
+
+  end
 end
