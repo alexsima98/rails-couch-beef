@@ -1,42 +1,29 @@
 <div class="container text-white">
 <h1>Dashboards#show</h1>
-<div class="row">
-  <div class="col-6">
-    <h2>Active Beefs</h2>
-    <% @alls.each do |s|%>
-    <%= s.id %>
-    <% if s.status != "finished" %>
-    <%= s.user  %> <%= s.price*2 %>
-    <% end %>
-    <% end %>
-  </div>
-  <div class="col-6">
-    <h3>Settled Beefs</h3>
-    <% @sessions.each do |s| %>
-    <%= s.id %> <% s.price %>
-    <% end %>
-  </div>
-</div>
-<div class="row">
   <h3>Pending requests on my sessions</h3>
-  <% current_user.sessions.where(status: 'pending').each do |session|%>
-  <% unless session.user_invites.first.nil? %>
-  <br>
-  <%= session.user_invites.first.user.username %>
+<div class="row">
+  <% @mysessions.each do |session|%>
+    <% unless session.user_invites.first.nil? %>
 
-  <%= session.user_invites.first.status %>
-  <br>
+    <div class="col-6">
+      <p>
+        <%= session.user_invites.first.user.username %>
+      </p>
+    </div>
+    <div class="col-2">
+        <%= session.user_invites.first.status %>
+    </div>
+    <div class="col-4">
+      <% if session.user_invites.first.status == 'pending' %>
+        <%= link_to 'accept', accept_path(user_invite_id: session.user_invites.first.id, session_id: session.id), method: :patch %>
+        <%= link_to 'decline', decline_path(user_invite_id: session.user_invites.first.id, session_id: session.id), method: :patch  %>
+      <% end %>
 
-  <% if session.user_invites.first.status == 'pending' %>
-  <%= link_to 'accept', accept_path(user_invite_id: session.user_invites.first.id, session_id: session.id), method: :patch %>
-  <%= link_to 'decline', decline_path(user_invite_id: session.user_invites.first.id, session_id: session.id), method: :patch  %>
-
-  <% if session.user == current_user %>
-  <%= link_to 'cancel', cancel_path(user_id: current_user, session_id: session.id), method: :patch  %>
-  <% end %>
-
-  <% end %>
-  <% end %>
+      <% if session.user == current_user %>
+        <%= link_to 'cancel', cancel_path(user_id: current_user, session_id: session.id), method: :patch  %>
+      <% end %>
+      </div>
+    <% end %>
   <% end %>
 </div>
 </div>
