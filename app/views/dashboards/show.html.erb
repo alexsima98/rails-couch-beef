@@ -4,6 +4,7 @@
   <div class="col-6">
     <h2>Active Beefs</h2>
     <% @alls.each do |s|%>
+    <%= s.id %>
     <% if s.status != "finished" %>
     <%= s.user  %> <%= s.price*2 %>
     <% end %>
@@ -12,12 +13,31 @@
   <div class="col-6">
     <h3>Settled Beefs</h3>
     <% @sessions.each do |s| %>
-    <%= s.user %> <% s.price %>
+    <%= s.id %> <% s.price %>
     <% end %>
   </div>
 </div>
+<div class="row">
+  <h3>Pending requests on my sessions</h3>
+  <% current_user.sessions.where(status: 'pending').each do |session|%>
+  <% unless session.user_invites.first.nil? %>
+  <br>
+  <%= session.user_invites.first.user.username %>
+
+  <%= session.user_invites.first.status %>
+  <br>
+
+  <% if session.user_invites.first.status == 'pending' %>
+  <%= link_to 'accept', accept_path(user_invite_id: session.user_invites.first.id, session_id: session.id), method: :patch %>
+  <%= link_to 'decline', decline_path(user_invite_id: session.user_invites.first.id, session_id: session.id), method: :patch  %>
+
+  <% if session.user == current_user %>
+  <%= link_to 'cancel', cancel_path(user_id: current_user, session_id: session.id), method: :patch  %>
+  <% end %>
+
+  <% end %>
+  <% end %>
+  <% end %>
+</div>
 </div>
 
-      <% if @session.user_invites.any?  %>
-  <%= @session.user_invites.first.user.email %>
-<% end %>
