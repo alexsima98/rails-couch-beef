@@ -115,3 +115,25 @@
     padding: 14px;
   }
 }
+
+.beef-card-avatar-dashboard {
+    display: flex;
+    align-items: center;
+
+  img {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    background-color: black;
+  }
+  p {
+    margin-bottom: 0;
+    margin-left: 10px;
+  }
+}
+
+.dashboard-card {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  border-bottom: solid 1px rgba(255, 255, 255, 0.4);
+}
