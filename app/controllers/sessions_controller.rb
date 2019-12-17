@@ -30,6 +30,16 @@ class SessionsController < ApplicationController
     redirect_to lobby_path(@session.lobby)
   end
 
+  def joining_session
+    @session = Session.find(params[:session_id])
+    @lobby = Lobby.find(@session.lobby_id)
+    current_user.wallet -= @session.price
+    @session.win_price += @session.price
+    current_user.save!
+
+    redirect_to lobby_session_path(@lobby, @session)
+  end
+
   private
 
   def session_params
