@@ -8,7 +8,7 @@
   </div>
     <% if @session.user == current_user %>
     <div class="mt-3 text-white">
-      <%= link_to "Cancel beef", session_path(@session), method: :delete, data: { confirm: "Are you sure?"} %>
+      <%= link_to "Cancel beef", lobby_session_path(@session), method: :delete, data: { confirm: "Are you sure?"} %>
 
     </div>
   <% end %>
