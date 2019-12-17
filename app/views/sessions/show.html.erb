@@ -56,8 +56,10 @@
   <%= simple_form_for [@session, Message.new] do |f| %>
     <%= f.input :content, label: "Type a message here"%>
     </div>
-  <div class="d-flex justify-content-end">
+  <div class="d-flex justify-content-between">
+    <%= link_to "destroy session", session_path(@session), method: :delete, data: { confirm: "Are you sure?"} %>
     <%= f.submit "Send", class: 'messenger-button'%>
+
   </div>
   <% end %>
 
