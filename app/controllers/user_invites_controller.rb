@@ -21,6 +21,7 @@ class UserInvitesController < ApplicationController
     @user_invite.status = 'accepted'
     @user_invite.save
     @session.status = 'in progress'
+    @session.save
     redirect_to dashboard_path(current_user)
   end
 
@@ -29,7 +30,6 @@ class UserInvitesController < ApplicationController
     @user_invite = UserInvite.find(params[:user_invite_id])
     @user_invite.status = "accepted"
     @user_invite.save
-    @session.status = "in progress"
     redirect_to dashboard_path(current_user)
   end
 
