@@ -28,7 +28,7 @@ class UserInvitesController < ApplicationController
   def decline
     @session = Session.find(params[:session_id])
     @user_invite = UserInvite.find(params[:user_invite_id])
-    @user_invite.status = "accepted"
+    @user_invite.status = "declined"
     @user_invite.save
     redirect_to dashboard_path(current_user)
   end

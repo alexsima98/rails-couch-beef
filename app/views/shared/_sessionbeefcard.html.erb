@@ -3,6 +3,7 @@
     <div class="beef-card-info-s">
       <% if (@session.user != current_user) && (@session.user_invites.any? { |invite| invite.user == current_user }) %>
         <p> <%= @session.status %> </p>
+        <h2><%= @session.price*2 %>$</h2>
       <% else %>
       <p>( entry: <%= @session.price %>$)</p>
       <h2><%= @session.price*2 %>$</h2>
@@ -11,7 +12,6 @@
     <div class="beef-card-avatar"><%= cl_image_tag @session.user.avatar %><h3><%= @session.user.username %></h3></div>
 
     <% if (@session.user != current_user) && (@session.user_invites.any? { |invite| invite.user == current_user }) %>
-    <div class="status"> <%=  current_user.user_invite.status %></div>
       <div class="beef-card-avatar-two"><h3 id="textx"><%= current_user.username%></h3><%= cl_image_tag current_user.avatar%></div>
     <% end %>
   </div>
