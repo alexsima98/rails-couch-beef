@@ -34,8 +34,11 @@ class UserInvitesController < ApplicationController
   end
 
   def cancel
-    @sessions = Session.where(user_invites: current_user)
-    @sessions.user_invite.destroy
+    @session = Session.find(params[:session_id])
+    @user_invite = UserInvite.find(params[:user_invite_id])
+    @user_invite.user.wallet += @session.price
+    @user_invite.user.save
+    @user_invite.destroy
     redirect_to dashboard_path(current_user)
   end
 end

@@ -1,7 +1,7 @@
 class DashboardsController < ApplicationController
   def show
     @mysessions = Session.where(user: current_user)
-    @sessions = Session.where(user_invites: current_user)
+    @sessions = UserInvite.where(user: current_user).map{|ui| ui.session}
     @alls = @mysessions + @sessions
   end
 end
