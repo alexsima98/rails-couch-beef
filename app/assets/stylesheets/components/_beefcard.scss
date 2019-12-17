@@ -119,18 +119,14 @@
 }
 
 .beef-card-avatar-dashboard {
-    display: flex;
-    align-items: center;
-
   img {
-    height: 70px;
-    width: 70px;
+    height: 50px;
+    width: 50px;
     border-radius: 50%;
     background-color: black;
   }
   p {
     margin-bottom: 0;
-    margin-left: 10px;
   }
 }
 
