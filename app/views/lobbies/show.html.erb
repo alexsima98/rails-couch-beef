@@ -2,25 +2,15 @@
 <div class="game-banner" style="background-image:linear-gradient(0deg, rgba(0,0,0,1) 2%, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 50%), url(<%= asset_url @lobby.photo %>);">
 </div>
 <div class="container">
-  <%= link_to root_path, class:"btn-back" do %>
-    <i class="fas fa-arrow-left"></i>
+    <%= link_to root_path, class:"btn-back" do %>
+      <i class="fas fa-arrow-left"></i>
+    <% end %>
+  <h1 class="title"><%= @lobby.title.capitalize! %></h1>
+  <h3 class="session">1 v 1 sessions</h3>
+  <div class="cards-lobby-show">
+  <% @sessions.each do |s| %>
+    <%= render 'shared/beefcard', session: s %>
   <% end %>
-<h1 class="title"><%= @lobby.title.capitalize! %></h1>
-<h3 class="session">1 v 1 sessions</h3>
-<%= @sessions.each do |s| %>
-<%= render 'shared/beefcard', session: s %>
-<% end %>
-<%= link_to "Create a session", new_lobby_session_path(@lobby.id), class:"btn btn-flat-orange" %>
+  </div>
+  <%= link_to "Create a session", new_lobby_session_path(@lobby.id), class:"btn btn-flat-orange" %>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-<%#= link_to "join game", lobby_session_path(@lobby, @sessions) %>

@@ -26,7 +26,8 @@ class SessionsController < ApplicationController
 
   def destroy
     @session = Session.find(params[:id])
-    @session.delete
+    @session.destroy
+    redirect_to lobby_path(@session.lobby)
   end
 
   private
