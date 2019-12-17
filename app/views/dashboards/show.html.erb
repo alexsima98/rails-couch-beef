@@ -2,33 +2,40 @@
   <h3>Pending requests on my sessions</h3>
 <div class="row d-flex align-items-center dashboard-card">
   <% @mysessions.each do |session|%>
-  <% if (session.user == current_user) && (session.user_invites.first == 'pending') %>
-    <div class="col-6">
+  <% if session.user_invites.select{|n| n.status == "Pending" }.first %>
+    <div class="col-4">
 
       <div class="beef-card-avatar-dashboard">
         <%= cl_image_tag session.user_invites.first.user.avatar %>
         <p><%= session.user_invites.first.user.username %></p>
       </div>
     </div>
-        <div class="col-4">
+        <div class="col-2">
+            <h5 class="mt-2">  <%= session.price*2 %>$</h5>
+        </div>
+        <div class="col-2">
             <%= session.user_invites.first.status %>
         </div>
         <div class="col-4 d-flex justify-content-end">
-            <%= link_to 'accept', accept_path(user_invite_id: session.user_invites.first.id, session_id: session.id), method: :patch %>
+            <%= link_to 'accept', accept_path(user_invite_id: session.user_invites.first.id, session_id: session.id), method: :patch, class:"mr-3" %>
             <%= link_to 'decline', decline_path(user_invite_id: session.user_invites.first.id, session_id: session.id), method: :patch  %>
           </div>
       <% end %>
 
     <% end %>
 </div>
-<div class="row">
+<div class="row d-flex align-items-center mt-3">
   <% @sessions.each do |session|%>
     <div class="col-4">
-      <p>
-        <%= session.user.username %>
-      </p>
+      <div class="beef-card-avatar-dashboard">
+        <%= cl_image_tag session.user.avatar %>
+        <p><%= session.user.username %></p>
+      </div>
     </div>
-    <div class="col-4">
+     <div class="col-2">
+            <h5 class="mt-2">  <%= session.price*2 %>$</h5>
+        </div>
+    <div class="col-2">
         <%= session.user_invites.first.status %>
     </div>
     <div class="col-4 d-flex justify-content-end">
