@@ -12,7 +12,7 @@
 
 
 ActiveRecord::Schema.define(version: 2019_12_17_094510) do
-
+  
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2019_12_17_094510) do
     t.string "team_type", default: "Any"
     t.string "half_length", default: "6 min"
     t.string "legacy_depending", default: "Not allowed"
+
     t.text "custom_rules", default: ""
     t.string "match_type", default: "Single game"
     t.string "status", default: "pending"

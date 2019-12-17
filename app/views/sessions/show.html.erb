@@ -73,7 +73,9 @@
   <% end %>
   </div>
 
-  <% if @session.user != current_user %>
+
+  <% if (@session.user != current_user ) && (@session.user_invites.all? { |invite| invite.user != current_user }) %>
   <%= link_to "Join now", join_path(session_id: @session.id), class:"btn btn-flat-orange", method: :patch, data: { confirm: "The amount of #{@session.price}$ will be deducted from your account! Confirm?" } %>
+
   <% end %>
     </div>
