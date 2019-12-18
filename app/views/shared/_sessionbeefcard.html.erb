@@ -8,6 +8,8 @@
         <h2><%= @session.score1 %></h2>
         <h2>-</h2>
         <h2><%= @session.score2 %></h2>
+      <% elsif @session.status = "agreed" %>
+        <p>Game over</p>
       <% else %>
         <p>( entry: <%= @session.price %>$)</p>
         <h2><%= @session.price*2 %>$</h2>
@@ -15,7 +17,9 @@
     </div>
     <div class="beef-card-avatar"><%= cl_image_tag @session.user.avatar %><h3><%= @session.user.username %></h3></div>
 
-    <% if (@session.user != current_user) && (@session.user_invites.any? { |invite| invite.user == current_user }) %>
+  <% if (@session.status == "finished") %>
+      <div class="beef-card-avatar-two"><h3 id="textx"><%= @session.user_invites.first.user.username%></h3><%= cl_image_tag @session.user_invites.first.user.avatar%></div>
+    <% elsif (@session.user != current_user) && (@session.user_invites.any? { |invite| invite.user == current_user }) %>
       <div class="beef-card-avatar-two"><h3 id="textx"><%= current_user.username%></h3><%= cl_image_tag current_user.avatar%></div>
     <% end %>
   </div>
