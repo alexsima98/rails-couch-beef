@@ -1,5 +1,5 @@
 <div class="messenger-tab">
-  <%= simple_form_for([ session, message ], remote: true) do |f| %>
+  <%= simple_form_for([lobby, session, message ], remote: true) do |f| %>
     <%= f.input :content, label: "Type a message here"%>
     <div class="d-flex justify-content-end">
       <%= f.submit "Send", class: 'messenger-button'%>
