@@ -1,12 +1,17 @@
-const d = document.getElementById("lobby");
-const topPos = d.offsetTop;
+
 
 
 const scrollToIndex = () => {
-  window.scrollTo({
-  top: topPos,
-  behavior: 'smooth'
-});
+  const d = document.getElementById("lobby");
+
+  if (d) {
+    const topPos = d.offsetTop;
+
+    window.scrollTo({
+      top: topPos,
+      behavior: 'smooth'
+    })
+  };
 }
 
 export { scrollToIndex }

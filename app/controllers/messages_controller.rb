@@ -6,9 +6,15 @@ class MessagesController < ApplicationController
     @message.session = @session
     @lobby = @session.lobby
     if @message.save
-      redirect_to lobby_session_path(@lobby, @session)
+      respond_to do |format|
+        format.html { redirect_to lobby_session_path(@lobby, @session) }
+        format.js
+      end
     else
-      render "sessions/show"
+      respond_to do |format|
+        format.html { render "sessions/show" }
+        format.js
+      end
     end
   end
 
