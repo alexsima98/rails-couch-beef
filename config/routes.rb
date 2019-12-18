@@ -6,13 +6,11 @@ Rails.application.routes.draw do
   }
   root to: 'lobbies#index'
   resources :lobbies, only: [:show] do
-    resources :sessions, only: [:index, :show, :new, :create] do
+    resources :sessions, only: [:index, :show, :new, :create, :destroy] do
       resources :messages, only: [:create, :destroy]
       resources :user_invites, only: [:create, :update]
     end
   end
-
-
 
   get "/dashboard" , to: "dashboards#show"  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get "/components", to: "pages#components"
@@ -26,5 +24,3 @@ Rails.application.routes.draw do
 
   patch '/score', to: "sessions#submit_score"
 end
-
-
