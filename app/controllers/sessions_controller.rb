@@ -35,16 +35,19 @@ class SessionsController < ApplicationController
 
   def submit_score
     @session = Session.find(params["session"]["session_id"])
-    if @session.score1 > @session.score2
-      @session.winner = @session.user.username
-      @session.user.wallet += @session.win_price
-      @session.user.save
-    elsif @session.score1 < @session.score2
-      @winner = @session.user_invite.select{|n| n.status == "accepted"}.first.user
-      @session.winner = @winner.username
-      @winner.wallet += @session.win_price
-      @winner.save
-    end
+
+    #if agreed?
+       if @session.score1 > @session.score2
+        @session.winner = @session.user.username
+        @session.user.wallet += @session.win_price
+        @session.user.save
+      elsif @session.score1 < @session.score2
+        @winner = @session.user_invite.select{|n| n.status == "accepted"}.first.user
+        @session.winner = @winner.username
+        @winner.wallet += @session.win_price
+        @winner.save
+      end
+    #end
     @session.status = "finished"
     @session.save
   end
@@ -70,5 +73,9 @@ class SessionsController < ApplicationController
 
   def session_params
     params.require(:session).permit(:price, :win_price, :platform)
+  end
+
+  def agreed?
+
   end
 end
