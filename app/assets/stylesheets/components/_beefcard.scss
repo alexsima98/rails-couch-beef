@@ -61,8 +61,8 @@
 .beef-card-avatar {
   display: flex;
   position: absolute;
-  top: -48px;
-  left: -13px;
+  top: -42px;
+  left: -24px;
   color: #f88a2b;
   align-items: center;
   h2 {
@@ -71,8 +71,8 @@
   }
 
   img {
-    height: 70px;
-    width: 70px;
+    height: 60px;
+    width: 60px;
     border-radius: 50%;
     background-color: black;
   }
@@ -80,14 +80,14 @@
 .beef-card-avatar-two {
   display: flex;
   position: absolute;
-  bottom: -34px;
-  right: -32px;
+  bottom: -42px;
+  right: -24px;
   color: #f88a2b;
   align-items: center;
 
   img {
-    height: 70px;
-    width: 70px;
+    height: 60px;
+    width: 60px;
     border-radius: 50%;
     background-color: black;
   }
@@ -139,4 +139,17 @@
 #messages {
   max-height: 240px;
   overflow: scroll;
+}
+
+.find-opponent {
+  margin-top: 32px;
+  padding: 8px 24px;
+  border: solid 1px #f88a2b;
+  border-radius: 10px;
+}
+
+.cancel-beef {
+  padding: 6px 16px;
+  border: solid 1px #f88a2b;
+  border-radius: 10px;
 }

@@ -84,6 +84,5 @@ class SessionsController < ApplicationController
   end
 
   def agreed?
-
   end
 end
