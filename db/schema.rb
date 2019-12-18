@@ -48,8 +48,8 @@ ActiveRecord::Schema.define(version: 2019_12_17_172606) do
     t.string "match_type", default: "Single game"
     t.string "status", default: "pending"
     t.string "winner"
-    t.integer "scoreOne", default: 0
-    t.integer "scoreTwo", default: 0
+    t.integer "score1", default: 0
+    t.integer "score2", default: 0
     t.index ["lobby_id"], name: "index_sessions_on_lobby_id"
     t.index ["user_id"], name: "index_sessions_on_user_id"
   end

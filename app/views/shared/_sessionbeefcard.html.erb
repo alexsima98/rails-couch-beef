@@ -4,6 +4,10 @@
       <% if (@session.user != current_user) && (@session.user_invites.any? { |invite| invite.user == current_user }) %>
         <p> <%= @session.status %> </p>
         <h2><%= @session.price*2 %>$</h2>
+      <% elsif @session.status == "finished" %>
+        <h2><%= @session.score1 %></h2>
+        <h2>-</h2>
+        <h2><%= @session.score2 %></h2>
       <% else %>
         <p>( entry: <%= @session.price %>$)</p>
         <h2><%= @session.price*2 %>$</h2>
