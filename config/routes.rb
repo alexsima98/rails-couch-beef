@@ -23,4 +23,6 @@ Rails.application.routes.draw do
   delete "/delete", to: "user_invite#destroy"
 
   patch '/score', to: "sessions#submit_score"
+
+  patch '/agreed', to: "sessions#agreed"
 end
