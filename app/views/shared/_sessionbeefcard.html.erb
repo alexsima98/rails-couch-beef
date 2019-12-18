@@ -8,7 +8,7 @@
         <h2><%= @session.score1 %></h2>
         <h2>-</h2>
         <h2><%= @session.score2 %></h2>
-      <% elsif @session.status = "agreed" %>
+      <% elsif @session.status == "agreed" %>
         <p>Game over</p>
       <% else %>
         <p>( entry: <%= @session.price %>$)</p>
