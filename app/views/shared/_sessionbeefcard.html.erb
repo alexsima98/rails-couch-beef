@@ -21,6 +21,8 @@
       <div class="beef-card-avatar-two"><h3 id="textx"><%= @session.user_invites.first.user.username%></h3><%= cl_image_tag @session.user_invites.first.user.avatar%></div>
     <% elsif (@session.user != current_user) && (@session.user_invites.any? { |invite| invite.user == current_user }) %>
       <div class="beef-card-avatar-two"><h3 id="textx"><%= current_user.username%></h3><%= cl_image_tag current_user.avatar%></div>
+      <% elsif (@session.status == "in progress") && (current_user== @session.user)%>
+      <div class="beef-card-avatar-two"><h3 id="textx"><%= @session.user_invites.first.user.username%></h3><%= cl_image_tag @session.user_invites.first.user.avatar%></div>
     <% end %>
   </div>
 </div>
