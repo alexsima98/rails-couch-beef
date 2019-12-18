@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="beef-card">
-    <div class="beef-card-info-s">
+  <div class="beef-card" style="background: radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(248,138,43,1) 100%);">
+    <div class="beef-card-info-s" >
       <% if (@session.user != current_user) && (@session.user_invites.any? { |invite| invite.user == current_user }) %>
         <p> <%= @session.status %> </p>
         <h2><%= @session.price*2 %>$</h2>

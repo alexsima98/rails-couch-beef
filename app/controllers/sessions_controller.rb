@@ -32,6 +32,22 @@ class SessionsController < ApplicationController
     redirect_to lobby_path(@session.lobby)
   end
 
+  def submit_score
+    @session = Session.find(params["session"]["session_id"])
+    if @session.score1 > @session.score2
+      @session.winner = @session.user.username
+      @session.user.wallet += @session.win_price
+      @session.user.save
+    elsif @session.score1 < @session.score2
+      @winner = @session.user_invite.select{|n| n.status == "accepted"}.first.user
+      @session.winner = @winner.username
+      @winner.wallet += @session.win_price
+      @winner.save
+    end
+    @session.status = "finished"
+    @session.save
+  end
+
   def joining_session
     # REMOVING MONEY FROM THE WALLET AND ADD IT TO PRICE
     @session = Session.find(params[:session_id])
@@ -40,7 +56,6 @@ class SessionsController < ApplicationController
     @session.win_price += @session.price
 
     current_user.save!
-
     # CREATING A USER INVITE
     @user_invite = UserInvite.new
     @user_invite.user = current_user

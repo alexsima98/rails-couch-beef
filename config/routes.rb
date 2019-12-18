@@ -28,6 +28,8 @@ Rails.application.routes.draw do
   patch "/decline", to: "user_invites#decline"
 
   delete "/delete", to: "user_invite#destroy"
+
+  patch '/score', to: "sessions#submit_score"
 end
 
 
