@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
     @session = Session.find(params[:id])
     @user_invite = UserInvite.new
     @users = User.all
+    @message = Message.new
   end
 
   def new

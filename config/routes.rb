@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
 
 
-  resources :sessions, only: [] do
+  resources :sessions, only: [:show] do
     resources :messages, only: :create
   end
 

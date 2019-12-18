@@ -135,3 +135,8 @@
   padding-bottom: 16px;
   border-bottom: solid 1px rgba(255, 255, 255, 0.4);
 }
+
+#messages {
+  max-height: 240px;
+  overflow: scroll;
+}
