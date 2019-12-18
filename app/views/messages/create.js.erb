@@ -12,8 +12,8 @@ function addMessage(messageHTML) {
 }
 
 <% if @message.errors.any? %>
-  refreshForm('<%= j render "messages/form", session: @session, message: @message %>');
+  refreshForm('<%= j render "messages/form", lobby: @lobby, session: @session, message: @message %>');
 <% else %>
   addMessage('<%= j render "messages/message", message: @message %>');
-  refreshForm('<%= j render "messages/form", session: @session, message: Message.new %>');
+  refreshForm('<%= j render "messages/form", lobby: @lobby, session: @session, message: Message.new %>');
 <% end %>
