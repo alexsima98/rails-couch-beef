@@ -9,7 +9,9 @@
   <h3 class="session">1 v 1 sessions</h3>
   <div class="cards-lobby-show">
   <% @sessions.each do |s| %>
+    <% if s.status == "pending" %>
     <%= render 'shared/beefcard', session: s %>
+    <% end %>
   <% end %>
   </div>
   <%= link_to "Create a session", new_lobby_session_path(@lobby.id), class:"btn btn-flat-orange" %>

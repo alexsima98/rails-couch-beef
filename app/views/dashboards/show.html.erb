@@ -43,5 +43,26 @@
       </div>
     <% end %>
   </div>
-</div>
 
+    <div class="row d-flex align-items-center mt-3 dashboard-card">
+    <% @inprogresssessions.each do |session|%>
+      <div class="col-4">
+        <div class="beef-card-avatar-dashboard">
+            <%= cl_image_tag session.user_invites.first.user.avatar %>
+            <p><%= session.user_invites.first.user.username %></p>
+        </div>
+      </div>
+      <div class="col-2">
+        <h5 class="mt-2">  <%= session.price*2 %>$</h5>
+      </div>
+      <div class="col-2">
+        <%= session.user_invites.first.status %>
+      </div>
+      <div class="col-4 d-flex justify-content-end">
+        <% if session.user_invites.first.user == current_user %>
+          <%= link_to 'cancel', cancel_path(user_invite_id: session.user_invites.first.id, session_id: session.id), method: :patch  %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
