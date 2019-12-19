@@ -4,5 +4,6 @@ class DashboardsController < ApplicationController
     @sessions = UserInvite.where(user: current_user).map{|ui| ui.session}
     @alls = @mysessions + @sessions
     @inprogresssessions = @alls.select {|session| session.status == "in progress"}
+    @finished_sessions = @alls.select {|session| session.status == "finished"}
   end
 end
