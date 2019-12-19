@@ -65,12 +65,12 @@ class SessionsController < ApplicationController
 
   def joining_session
     # REMOVING MONEY FROM THE WALLET AND ADD IT TO PRICE
-    @session = Session.find(params[:user_invite][:session_id].to_i)
+    @session = Session.find(params[:session_id])
     @lobby = Lobby.find(@session.lobby_id)
     current_user.wallet -= @session.price
     @session.win_price += @session.price
     @session.save
-    current_user.save!
+    current_user.save
     # CREATING A USER INVITE
     @user_invite = UserInvite.new
     @user_invite.user = current_user
