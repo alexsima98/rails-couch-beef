@@ -19,6 +19,7 @@ class SessionsController < ApplicationController
     @session.lobby = @lobby
     if @session.save
       @session.user.wallet -= @session.price
+      @session.win_price += @session.price
       @session.user.save
       redirect_to lobby_session_path(@lobby, @session)
     else
@@ -67,7 +68,7 @@ class SessionsController < ApplicationController
     @lobby = Lobby.find(@session.lobby_id)
     current_user.wallet -= @session.price
     @session.win_price += @session.price
-
+    @session.save
     current_user.save!
     # CREATING A USER INVITE
     @user_invite = UserInvite.new
