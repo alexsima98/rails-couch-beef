@@ -12,9 +12,15 @@
         <p>In progress</p>
         <h2><%= @session.win_price %>$</h2>
       <% elsif @session.status == "agreed" %>
+          <% if current_user.username == @session.winner %>
         <h2><%= @session.score1 %></h2>
-        <p><%= @session.winner %> won <%= @session.win_price %> </p>
+        <p style="color:green;">WON <%= @session.win_price %> </p>
         <h2><%= @session.score2 %></h2>
+          <% else %>
+        <h2><%= @session.score1 %></h2>
+        <p style="color:red;">LOST <%= @session.win_price %> </p>
+        <h2><%= @session.score2 %></h2>
+          <% end %>
       <% else %>
         <p>Entry:<%= @session.price %>$</p>
         <h2><%= @session.price * 2 %>$</h2>
