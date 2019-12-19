@@ -23,10 +23,10 @@
          </div>
 
             <div class="col-4 justify-content-end">
-              <%= link_to 'accept', accept_path(user_invite_id: session.user_invites.first.id, session_id: session.id), method: :patch, class:"d-flex justify-content-end" do %>
+              <%= link_to accept_path(user_invite_id: session.user_invites.first.id, session_id: session.id), method: :patch, class:"d-flex justify-content-end" do %>
                 <i class="fas fa-check"></i>
               <% end %>
-              <%= link_to 'decline', decline_path(user_invite_id: session.user_invites.first.id, session_id: session.id), method: :patch, class:"d-flex justify-content-end" do %>
+              <%= link_to decline_path(user_invite_id: session.user_invites.first.id, session_id: session.id), method: :patch, class:"d-flex justify-content-end" do %>
                 <i class="fas fa-times"></i>
               <% end %>
             </div>

@@ -73,9 +73,11 @@
       <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
         <div class="card-body">
           <div class="add-friend-link">
-           <%= simple_form_for [@lobby, @session, @user_invite] do |f| %>
+           <%= simple_form_for [@lobby, @session, @user_invite], url: join_path, method: :patch do |f| %>
            <%= f.input :user, collection: User.all, label_method: ->(user) { user.username }, label: "Choose opponent!" %>
-           <%= f.button :submit, class: "messenger-button", value: "Send invite" %>
+           <%= f.hidden_field :session_id, value: @session.id %>
+           <%= f.hidden_field :lobby_id, value: @lobby.id %>
+           <%= f.button :submit, class: "messenger-button" %>
            <% end %>
          </div>
        </div>
