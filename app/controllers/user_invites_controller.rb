@@ -20,11 +20,11 @@ class UserInvitesController < ApplicationController
     @session = Session.find(params[:session_id])
     @user_invite = UserInvite.find(params[:user_invite_id])
     @user_invite.status = 'accepted'
-    # @user_invite.user.wallet -= @session.price
-    # @user_invite.user.save
     @user_invite.save
     @session.status = 'in progress'
     @session.save
+    @user_invite.user.wallet -= @session.price
+    @user_invite.user.save
     redirect_to dashboard_path(current_user)
   end
 

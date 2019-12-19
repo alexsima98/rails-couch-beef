@@ -35,9 +35,9 @@
     <% end %>
   </div>
   <br>
-  <h5>Waiting for opponent to accept my request</h5>
+
+  <h5>My invitations</h5>
   <div class="row d-flex align-items-center mt-3 dashboard-card" style="background: linear-gradient(0deg, rgba(50,50,50,1) 5%, rgba(235,235,235,0) 43%, rgba(255,255,255,0) 49%);">
-    <% unless @sessions.nil? %>
     <% @sessions.each do |session|%>
       <div class="col-2">
         <div class="beef-card-avatar-dashboard">
@@ -46,7 +46,7 @@
       </div>
 
       <div class="col-2">
-          <h5 class="mt-2">  <%= session.price*2 %>$</h5>
+          <h5 class="mt-2">  <%= session.price %>$</h5>
           <%= session.user_invites.first.status %>
       </div>
 
@@ -56,14 +56,18 @@
         <% end %>
       </div>
 
-      <div class="col-6 d-flex justify-content-end">
-        <% if session.user_invites.first.user == current_user %>
-          <%= link_to 'cancel', cancel_path(user_invite_id: session.user_invites.first.id, session_id: session.id), method: :patch  %>
+
+      <div class="col-6">
+        <%= link_to accept_path(user_invite_id: session.user_invites.first.id, session_id: session.id), method: :patch, class:"d-flex justify-content-end" do %>
+          <i class="fas fa-check"></i>
+        <% end %>
+        <%= link_to decline_path(user_invite_id: session.user_invites.first.id, session_id: session.id), method: :patch, class:"d-flex justify-content-end" do %>
+          <i class="fas fa-times"></i>
         <% end %>
       </div>
     <% end %>
-    <% end %>
   </div>
+
   <br>
   <h5>My sessions in progress</h5>
     <div class="row d-flex align-items-center mt-3 dashboard-card" style="background: linear-gradient(0deg, rgba(50,50,50,1) 5%, rgba(235,235,235,0) 43%, rgba(255,255,255,0) 49%);">
