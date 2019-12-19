@@ -58,10 +58,8 @@
       </div>
 
 
-      <div class="col-3 d-flex justify-content-between">
-        <%= link_to accept_path(user_invite_id: session.user_invites.first.id, session_id: session.id), method: :patch, class:"d-flex justify-content-end" do %>
-          <i class="fas fa-check" style="font-size: 20px; color: green;"></i>
-        <% end %>
+      <div class="col-3 d-flex justify-content-end">
+
         <%= link_to decline_path(user_invite_id: session.user_invites.first.id, session_id: session.id), method: :patch, class:"d-flex justify-content-end" do %>
           <i class="fas fa-times" style="font-size: 20px; color: red;"></i>
         <% end %>
@@ -103,7 +101,7 @@
         <% if session.winner == current_user.username %>
           <h5 class="mt-2" style="color:green;"> WON <%= session.price*2 %>$</h5>
         <% else %>
-          <h5 class="mt-2" style="color:red;"> LOST <%= session.price*2 %>$</h5>
+          <h5 class="mt-2" style="color:red;"> LOST <%= session.price %>$</h5>
         <% end %>
       </div>
       <div class="col-2">
