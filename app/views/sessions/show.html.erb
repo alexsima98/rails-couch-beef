@@ -12,9 +12,14 @@
         </div>
       <% end %>
       <% if (@session.status == "finished") && (current_user.username != @session.scoresub) %>
-        <div class="d-flex justify-content-between">
-        <%= link_to "Agree", agreed_path(lobby_id: @session.id, session_id: @session.id), method: :patch, class: "btn btn-flat-orange" %>
-        <%= link_to "Disagree" %>
+        <div class="row">
+          <div class="col-6 ">
+        <%= link_to "Agree", agreed_path(lobby_id: @session.id, session_id: @session.id), method: :patch, class: "btn btn-flat-orange w-50" %>
+          </div>
+           <div class="col-6">
+        <%= link_to "Disagree", lobby_session_path(@lobby,@session), class: "btn btn-flat-dis w-50" %>
+           </div>
+
         </div>
       <% end %>
   </div>
@@ -53,7 +58,7 @@
   </div>
   <% end %>
 
-    <% if (@session.user == current_user) && (@session.status != "agreed") %>
+    <% if (@session.user == current_user) && (@session.status == "pending") %>
 
     <div class="accordion" id="accordionExample">
       <h5 class="mb-0">

@@ -40,6 +40,7 @@ class SessionsController < ApplicationController
     @session.status = "finished"
     @session.scoresub = current_user.username
     @session.save
+    redirect_to lobby_session_path(@lobby,@session)
   end
 
   def agreed
