@@ -32,7 +32,7 @@ puts "#{Lobby.all.count} lobbies created"
 
 session1 = Session.create(user: roy, price: 15, platform: "Playstation 4", lobby: fortnite)
 session2 = Session.create(user: nick, price: 20, platform: "Playstation 4", lobby: cod)
-session3 = Session.create(user: hamza, price: 12, platform: "Playstation 4", lobby: fifa)
+session3 = Session.create(user: hamza, price: 300, platform: "Playstation 4", lobby: fifa)
 session4 = Session.create(user: alex, price: 20, platform: "Playstation 4", lobby: fifa)
 session5 = Session.create(user: roy, price: 5, platform: "Playstation 4", lobby: fifa)
 session6 = Session.create(user: nick, price: 50, platform: "Playstation 4", lobby: fifa)
