@@ -1,15 +1,18 @@
 <div class="container">
   <div class="beef-card" style="background: radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(248,138,43,1) 100%);">
     <div class="beef-card-info-s" >
-      <% if (@session.user != current_user) && (@session.user_invites.any? { |invite| invite.user == current_user }) %>
-        <p> <%= @session.status %> </p>
-        <h2><%= @session.price*2 %>$</h2>
-      <% elsif @session.status == "finished" %>
+      <% if @session.status == "finished" %>
         <h2><%= @session.score1 %></h2>
         <h2>-</h2>
         <h2><%= @session.score2 %></h2>
+      <% elsif (@session.user != current_user) && (@session.user_invites.any? { |invite| invite.user == current_user }) %>
+        <p> <%= @session.status %> </p>
+        <h2><%= @session.price*2 %>$</h2>
+      <% elsif @session.status == "in progress"%>
+        <p>In progress...</p>
+        <h2><%= @session.price*2 %>$</h2>
       <% elsif @session.status == "agreed" %>
-        <p>Game over</p>
+        <p>Winner: <%= @session.winner %></p>
       <% else %>
         <p>( entry: <%= @session.price %>$)</p>
         <h2><%= @session.price*2 %>$</h2>
