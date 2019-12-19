@@ -14,7 +14,7 @@
       <% if (@session.status == "finished") && (current_user.username != @session.scoresub) %>
         <div class="row">
           <div class="col-6 ">
-        <%= link_to "Agree", agreed_path(lobby_id: @session.id, session_id: @session.id), method: :patch, class: "btn btn-flat-orange w-50" %>
+        <%= link_to "Agree", agreed_path(lobby_id: @session.lobby.id, session_id: @session.id), method: :patch, class: "btn btn-flat-orange w-50" %>
           </div>
            <div class="col-6">
         <%= link_to "Disagree", lobby_session_path(@lobby,@session), class: "btn btn-flat-dis w-50" %>
