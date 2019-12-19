@@ -83,7 +83,7 @@ class SessionsController < ApplicationController
   private
 
   def session_params
-    params.require(:session).permit(:price, :win_price, :platform, :score1, :score2, :scoresub, :winner)
+    params.require(:session).permit(:price, :win_price, :platform, :score1, :score2, :scoresub, :winner, :team_type, :star_level, :half_length, :custom_rules, :legacy_depending, :match_type)
   end
 
   def agreed?
