@@ -21,6 +21,7 @@ class SessionsController < ApplicationController
       @session.user.wallet -= @session.price
       @session.win_price += @session.price
       @session.user.save
+      @session.save
       redirect_to lobby_session_path(@lobby, @session)
     else
       render :new
