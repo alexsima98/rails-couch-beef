@@ -1,7 +1,7 @@
 <div class="container text-white">
   <br>
   <h5>Pending requests on my sessions</h5>
-  <div class="row d-flex align-items-center dashboard-card" style="background: linear-gradient(0deg, rgba(50,50,50,1) 5%, rgba(235,235,235,0) 43%, rgba(255,255,255,0) 49%);">
+  <div class="row d-flex align-items-center dashboard-card" style="background: linear-gradient(90deg, rgba(50,50,50,1) 5%, rgba(235,235,235,0) 30%, rgba(255,255,255,0) 49%);">
     <% @mysessions.each do |session|%>
       <% if session.user_invites.select{|n| n.status == "Pending" }.first %>
           <div class="col-4">
@@ -10,9 +10,10 @@
               <p><%= session.user_invites.first.user.username %></p>
             </div>
           </div>
+          
+        <div class="col-3">
+                <h5 class="mt-2">  <%= session.price*2 %>$</h5>
 
-            <div class="col-2">
-                <h5 class="mt-2">  <%= session.price %>$</h5>
                 <%= session.user_invites.first.status %>
             </div>
 
@@ -22,14 +23,15 @@
             <% end %>
          </div>
 
-            <div class="col-4">
-              <%= link_to accept_path(user_invite_id: session.user_invites.first.id, session_id: session.id), method: :patch, class:"d-flex justify-content-end" do %>
-                <i class="fas fa-check"></i>
-              <% end %>
-              <%= link_to decline_path(user_invite_id: session.user_invites.first.id, session_id: session.id), method: :patch, class:"d-flex justify-content-end" do %>
-                <i class="fas fa-times"></i>
-              <% end %>
-            </div>
+
+      <div class="col-3 d-flex justify-content-between">
+        <%= link_to accept_path(user_invite_id: session.user_invites.first.id, session_id: session.id), method: :patch, class:"d-flex justify-content-end" do %>
+          <i class="fas fa-check" style="font-size: 20px; color: green;"></i>
+        <% end %>
+        <%= link_to decline_path(user_invite_id: session.user_invites.first.id, session_id: session.id), method: :patch, class:"d-flex justify-content-end" do %>
+          <i class="fas fa-times" style="font-size: 20px; color: red;"></i>
+        <% end %>
+      </div>
 
       <% end %>
     <% end %>
@@ -37,15 +39,15 @@
   <br>
 
   <h5>My invitations</h5>
-  <div class="row d-flex align-items-center mt-3 dashboard-card" style="background: linear-gradient(0deg, rgba(50,50,50,1) 5%, rgba(235,235,235,0) 43%, rgba(255,255,255,0) 49%);">
+  <div class="row d-flex align-items-center mt-3 dashboard-card" style="background: linear-gradient(90deg, rgba(50,50,50,1) 5%, rgba(235,235,235,0) 30%, rgba(255,255,255,0) 49%);">
     <% @sessions.each do |session|%>
-      <div class="col-2">
+      <div class="col-4">
         <div class="beef-card-avatar-dashboard">
           <%= cl_image_tag session.user.avatar %>
         </div>
       </div>
 
-      <div class="col-2">
+      <div class="col-3">
           <h5 class="mt-2">  <%= session.price %>$</h5>
           <%= session.user_invites.first.status %>
       </div>
@@ -57,12 +59,12 @@
       </div>
 
 
-      <div class="col-6">
+      <div class="col-3 d-flex justify-content-between">
         <%= link_to accept_path(user_invite_id: session.user_invites.first.id, session_id: session.id), method: :patch, class:"d-flex justify-content-end" do %>
-          <i class="fas fa-check"></i>
+          <i class="fas fa-check" style="font-size: 20px; color: green;"></i>
         <% end %>
         <%= link_to decline_path(user_invite_id: session.user_invites.first.id, session_id: session.id), method: :patch, class:"d-flex justify-content-end" do %>
-          <i class="fas fa-times"></i>
+          <i class="fas fa-times" style="font-size: 20px; color: red;"></i>
         <% end %>
       </div>
     <% end %>
@@ -70,18 +72,18 @@
 
   <br>
   <h5>My sessions in progress</h5>
-    <div class="row d-flex align-items-center mt-3 dashboard-card" style="background: linear-gradient(0deg, rgba(50,50,50,1) 5%, rgba(235,235,235,0) 43%, rgba(255,255,255,0) 49%);">
+    <div class="row d-flex align-items-center mt-3 dashboard-card" style="background: linear-gradient(90deg, rgba(50,50,50,1) 5%, rgba(235,235,235,0) 30%, rgba(255,255,255,0) 49%);">
     <% @inprogresssessions.each do |session|%>
       <div class="col-4">
         <div class="beef-card-avatar-dashboard">
             <%= cl_image_tag session.user_invites.first.user.avatar %>
         </div>
       </div>
-      <div class="col-4">
+      <div class="col-6">
           <h5 class="mt-2">  <%= session.price*2 %>$</h5>
           <%= session.status %>
       </div>
-      <div class="col-4">
+      <div class="col-2">
         <%= link_to lobby_session_path(session.lobby, session), class:"d-flex align-items-center justify-content-between" do %>
           <i class="far fa-eye"></i>
         <% end %>
@@ -91,7 +93,7 @@
 
   <br>
   <h5>History of my past sessions</h5>
-  <div class="row d-flex align-items-center mt-3 dashboard-card" style="background: linear-gradient(0deg, rgba(50,50,50,1) 5%, rgba(235,235,235,0) 43%, rgba(255,255,255,0) 49%);">
+  <div class="row d-flex align-items-center mt-3 dashboard-card" style="background: linear-gradient(90deg, rgba(50,50,50,1) 5%, rgba(235,235,235,0) 30%, rgba(255,255,255,0) 49%);">
     <% @finished_sessions.each do |session|%>
       <div class="col-4">
         <div class="beef-card-avatar-dashboard">
