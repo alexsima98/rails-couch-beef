@@ -61,7 +61,7 @@ background-color: black;
   text-decoration: none;
     &:hover {
     text-decoration: none !important;
-    color: white !important;
+    color: white!important;
   }
 }
 
@@ -71,6 +71,11 @@ background-color: black;
 
 #accordionExample{
   border: none;
+}
+
+.card-header {
+  border: solid;
+  border-radius: 20px;
 }
 
 .card-header:hover {
