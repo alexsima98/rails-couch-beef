@@ -78,6 +78,7 @@ class SessionsController < ApplicationController
       @user_invite.session = @session
       @user_invite.save
     else
+      # random comment
       flash[:alert] = 'Not enough money'
     end
     redirect_to lobby_session_path(@lobby, @session)
