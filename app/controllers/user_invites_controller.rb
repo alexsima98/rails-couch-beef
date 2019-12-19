@@ -1,6 +1,7 @@
 class UserInvitesController < ApplicationController
   def create
     # MOVED THIS TO SESSIONS CONTROLLER INSIDE OF THE JOINING_SESSION
+
     @lobby = Lobby.find(params[:lobby_id])
     @session = Session.find(params[:session_id])
     @user_invite = UserInvite.new
