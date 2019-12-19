@@ -22,7 +22,7 @@
             <% end %>
          </div>
 
-            <div class="col-4 justify-content-end">
+            <div class="col-4">
               <%= link_to accept_path(user_invite_id: session.user_invites.first.id, session_id: session.id), method: :patch, class:"d-flex justify-content-end" do %>
                 <i class="fas fa-check"></i>
               <% end %>

@@ -67,23 +67,28 @@ class SessionsController < ApplicationController
     # REMOVING MONEY FROM THE WALLET AND ADD IT TO PRICE
     @session = Session.find(params[:session_id])
     @lobby = Lobby.find(@session.lobby_id)
-    current_user.wallet -= @session.price
-    @session.win_price += @session.price
-    @session.save
-    current_user.save!
-    # CREATING A USER INVITE
-    @user_invite = UserInvite.new
-    @user_invite.user = current_user
-    @user_invite.session = @session
-    @user_invite.save
-
+    if current_user.wallet > @session.price
+      current_user.wallet -= @session.price
+      @session.win_price += @session.price
+      @session.save
+      current_user.save
+      # CREATING A USER INVITE
+      @user_invite = UserInvite.new
+      @user_invite.user = current_user
+      @user_invite.session = @session
+      @user_invite.save
+    else
+      # random comment
+      flash[:alert] = 'Not enough money'
+    end
     redirect_to lobby_session_path(@lobby, @session)
+
   end
 
   private
 
   def session_params
-    params.require(:session).permit(:price, :win_price, :platform, :score1, :score2, :scoresub, :winner)
+    params.require(:session).permit(:price, :win_price, :platform, :score1, :score2, :scoresub, :winner, :team_type, :star_level, :half_length, :custom_rules, :legacy_depending, :match_type)
   end
 
   def agreed?
