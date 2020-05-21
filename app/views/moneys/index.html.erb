@@ -1,0 +1,16 @@
+<div class="container">
+  <h1 class="text-white">Top Up</h1>
+  <div class="row">
+    <% @moneys.each do |money| %>
+      <div class="col-6 col-md-4">
+        <div class="card">
+
+          <div class="card-body">
+            <h5 class="card-title"><%= money.name %></h5>
+            <%= link_to "Add", money_path(money), class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

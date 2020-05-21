@@ -10,6 +10,7 @@ UserInvite.destroy_all
 Session.destroy_all
 User.destroy_all
 Lobby.destroy_all
+Money.destroy_all
 
 puts "Seeding..."
 
@@ -20,7 +21,6 @@ hamza = User.create(wallet: 1000, username: "BigPoppaBeef", email: "hamza@gmail.
 humbeline = User.create(wallet: 1000, username: "HumBeef", email: "humbeline@gmail.com", password: "123456", remote_avatar_url: "https://kitt.lewagon.com/placeholder/users/humbeline", psn: "Humbi")
 claire = User.create(wallet: 1000, username: "BeefnotClaired", email: "claire@gmail.com", password: "123456", remote_avatar_url: "https://kitt.lewagon.com/placeholder/users/claire-gtr", psn: "Clairz")
 santi = User.create(wallet: 1000, username: "SantiBeefy", email: "santi@gmail.com", password: "123456", remote_avatar_url: "https://kitt.lewagon.com/placeholder/users/santiagosan93", psn: "Santa")
-
 
 puts "#{User.all.count} users created"
 
@@ -47,5 +47,9 @@ UserInvite.create(session: session2, user: alex)
 UserInvite.create(session: session3, user: roy)
 
 puts "#{UserInvite.all.count} UserInvites created"
+
+Money.create(name: "5 euros")
+Money.create(name: "10 euros")
+Money.create(name: "20 euros")
 
 puts "seeding finished"

@@ -37,9 +37,9 @@
   </div>
   <br>
 
-  <h5>My invitations</h5>
+  <h5>Sent invitations</h5>
   <div class="row d-flex align-items-center mt-3 dashboard-card" style="background: linear-gradient(90deg, rgba(50,50,50,1) 5%, rgba(235,235,235,0) 30%, rgba(255,255,255,0) 49%);">
-    <% @sessions.each do |session|%>
+    <% @sent_invites.each do |session|%>
       <div class="col-4">
         <div class="beef-card-avatar-dashboard">
           <%= cl_image_tag session.user.avatar %>
@@ -58,14 +58,65 @@
       </div>
 
 
-      <div class="col-3 d-flex justify-content-end">
-
-        <%= link_to decline_path(user_invite_id: session.user_invites.first.id, session_id: session.id), method: :patch, class:"d-flex justify-content-end" do %>
-          <i class="fas fa-times" style="font-size: 20px; color: red;"></i>
-        <% end %>
-      </div>
+     <% if current_user == session.user %>
+        <div class="col-3 d-flex justify-content-between">
+          <%= link_to accept_path(user_invite_id: session.user_invites.first.id, session_id: session.id), method: :patch, class:"d-flex justify-content-end" do %>
+            <i class="fas fa-check" style="font-size: 20px; color: green;"></i>
+          <% end %>
+          <%= link_to decline_path(user_invite_id: session.user_invites.first.id, session_id: session.id), method: :patch, class:"d-flex justify-content-end" do %>
+            <i class="fas fa-times" style="font-size: 20px; color: red;"></i>
+          <% end %>
+        </div>
+        <% else %>
+          <div class="col-3 d-flex justify-content-end">
+            <%= link_to decline_path(user_invite_id: session.user_invites.first.id, session_id: session.id), method: :patch, class:"d-flex justify-content-end" do %>
+              <i class="fas fa-times" style="font-size: 20px; color: red;"></i>
+            <% end %>
+          </div>
+      <% end %>
     <% end %>
   </div>
+
+  <h5>Received invitations</h5>
+  <div class="row d-flex align-items-center mt-3 dashboard-card" style="background: linear-gradient(90deg, rgba(50,50,50,1) 5%, rgba(235,235,235,0) 30%, rgba(255,255,255,0) 49%);">
+    <% @received_invites.each do |session|%>
+      <div class="col-4">
+        <div class="beef-card-avatar-dashboard">
+          <%= cl_image_tag session.user.avatar %>
+        </div>
+      </div>
+
+      <div class="col-3">
+          <h5 class="mt-2">  <%= session.price %>$</h5>
+          <%= session.user_invites.first.status %>
+      </div>
+
+      <div class="col-2">
+        <%= link_to lobby_session_path(session.lobby, session), class:"d-flex align-items-center justify-content-between" do %>
+          <i class="far fa-eye"></i>
+        <% end %>
+      </div>
+
+
+     <% if current_user == session.user %>
+        <div class="col-3 d-flex justify-content-between">
+          <%= link_to accept_path(user_invite_id: session.user_invites.first.id, session_id: session.id), method: :patch, class:"d-flex justify-content-end" do %>
+            <i class="fas fa-check" style="font-size: 20px; color: green;"></i>
+          <% end %>
+          <%= link_to decline_path(user_invite_id: session.user_invites.first.id, session_id: session.id), method: :patch, class:"d-flex justify-content-end" do %>
+            <i class="fas fa-times" style="font-size: 20px; color: red;"></i>
+          <% end %>
+        </div>
+        <% else %>
+          <div class="col-3 d-flex justify-content-end">
+            <%= link_to decline_path(user_invite_id: session.user_invites.first.id, session_id: session.id), method: :patch, class:"d-flex justify-content-end" do %>
+              <i class="fas fa-times" style="font-size: 20px; color: red;"></i>
+            <% end %>
+          </div>
+      <% end %>
+    <% end %>
+  </div>
+
 
   <br>
   <h5>My sessions in progress</h5>

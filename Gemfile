@@ -30,3 +30,7 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
 end
+
+gem "stripe", "~> 5.15"
+gem 'money-rails'
+

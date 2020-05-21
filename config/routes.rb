@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   root to: 'lobbies#index'
+
+  resources :moneys, only: [:index, :show]
+
   resources :lobbies, only: [:show] do
     resources :sessions, only: [:index, :show, :new, :create, :destroy] do
       resources :messages, only: [:create, :destroy]
