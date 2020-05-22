@@ -4,5 +4,9 @@
       <h1 class="text-white"><%= @topup.name %></h1>
       <p>Some awesome description of our amazing topup.</p>
     </div>
+    <%= form_tag orders_path do %>
+    <%= hidden_field_tag 'topup_id', @topup.id %>
+    <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+    <% end %>
   </div>
 </div>

@@ -3,15 +3,18 @@
   <h1>Top-ups</h1>
   <div class="row">
     <% @topups.each do |topup| %>
-      <div class="col-6 col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title"><%= topup.name %></h5>
-            <p>Amount: <%= humanized_money_with_symbol(topup.price) %></p>
-            <%= link_to "More details", topup_path(topup), class: "btn btn-primary" %>
-          </div>
+    <div class="col-6 col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= topup.name %></h5>
+          <p>Amount: <%= humanized_money_with_symbol(topup.price) %></p>
+          <%= form_tag orders_path do %>
+          <%= hidden_field_tag 'topup_id', topup.id %>
+          <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+          <% end %>
         </div>
       </div>
+    </div>
     <% end %>
   </div>
 </div>

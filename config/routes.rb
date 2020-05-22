@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root to: 'lobbies#index'
 
   resources :topups, only: [:index, :show]
+  resources :orders, only: [:show, :create]
 
   resources :lobbies, only: [:show] do
     resources :sessions, only: [:index, :show, :new, :create, :destroy] do

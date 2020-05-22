@@ -54,8 +54,4 @@ UserInvite.create(session: session3, user: roy)
 
 puts "#{UserInvite.all.count} UserInvites created"
 
-Money.create(name: "5 euros")
-Money.create(name: "10 euros")
-Money.create(name: "20 euros")
-
 puts "seeding finished"

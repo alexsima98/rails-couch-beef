@@ -34,5 +34,4 @@ group :development, :test do
 end
 
 gem "stripe", "~> 5.15"
-gem 'money-rails'
 
