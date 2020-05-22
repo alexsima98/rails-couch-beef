@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2020_05_22_171759) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "price_cents", default: 0, null: false
   end
 
   create_table "sessions", force: :cascade do |t|
