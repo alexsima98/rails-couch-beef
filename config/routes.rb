@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   root to: 'lobbies#index'
+
+  resources :topups, only: [:index, :show]
+
   resources :lobbies, only: [:show] do
     resources :sessions, only: [:index, :show, :new, :create, :destroy] do
       resources :messages, only: [:create, :destroy]
@@ -26,3 +29,4 @@ Rails.application.routes.draw do
 
   patch '/agreed', to: "sessions#agreed"
 end
+

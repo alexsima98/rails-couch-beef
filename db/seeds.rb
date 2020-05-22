@@ -10,6 +10,7 @@ UserInvite.destroy_all
 Session.destroy_all
 User.destroy_all
 Lobby.destroy_all
+Topup.destroy_all
 
 puts "Seeding..."
 
@@ -21,8 +22,13 @@ humbeline = User.create(wallet: 1000, username: "HumBeef", email: "humbeline@gma
 claire = User.create(wallet: 1000, username: "BeefnotClaired", email: "claire@gmail.com", password: "123456", remote_avatar_url: "https://kitt.lewagon.com/placeholder/users/claire-gtr", psn: "Clairz")
 santi = User.create(wallet: 1000, username: "SantiBeefy", email: "santi@gmail.com", password: "123456", remote_avatar_url: "https://kitt.lewagon.com/placeholder/users/santiagosan93", psn: "Santa")
 
-
 puts "#{User.all.count} users created"
+
+top1 = Topup.create(name:"5 euros", price_cents: 500)
+top2 = Topup.create(name:"10 euros", price_cents: 1000)
+top3 = Topup.create(name:"20 euros", price_cents: 2000)
+
+puts "#{Topup.all.count} topups created"
 
 fifa = Lobby.create(title: "FIFA", photo: "fifa2.png")
 cod = Lobby.create(title: "CALL OF DUTY", photo: "cod2.jpg")
