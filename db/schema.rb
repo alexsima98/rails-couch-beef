@@ -32,10 +32,7 @@ ActiveRecord::Schema.define(version: 2020_05_22_182651) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
-  create_table "money", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+  create_table "moneys", force: :cascade do |t|
     t.integer "price_cents", default: 0, null: false
   end
 
