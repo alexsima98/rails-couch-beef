@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+  # you need to put access permissions
+
+  # they are a lot of common actions you can put in before_action
   def show
     @lobby = Lobby.find(params[:lobby_id])
     @session = Session.find(params[:id])
@@ -36,7 +39,12 @@ class SessionsController < ApplicationController
   end
 
   def submit_score
-    @session = Session.find(params["session"]["session_id"])
+    # all the params can be retrieve with require when they are nested
+    #  you can fetch them if they are mandatory but can be nil,
+    #  you can require them if they are mandatory AND can not be nil
+    #  or just access them if they are not mandatoray
+    #       => params.require(:session)[:session_id]
+    @session = Session.find(params.require(:session).fetch(:session_id))
     @session.score1 = params["session"]["score1"]
     @session.score2 = params["session"]["score2"]
     @session.status = "finished"
