@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
       cancel_url: order_url(order),
       payment_method_types: ['card'],
       line_items: [{
+        name: topup.name,
         amount: topup.price_cents,
         currency: 'eur',
         quantity: 1
