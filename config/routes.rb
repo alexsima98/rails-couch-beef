@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   }
   root to: 'lobbies#index'
 
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
+
   resources :topups, only: [:index, :show]
 
   resources :orders, only: [:show, :create] do
