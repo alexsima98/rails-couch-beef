@@ -22,7 +22,16 @@ class OrdersController < ApplicationController
     redirect_to new_order_payment_path(order)
   end
 
+  def new
+    @order = Order.new
+    @topup = Topup.find(params[topup_id])
+  end
+
   def show
     @order = current_user.orders.find(params[:id])
+    if @order.state = "paid"
+      amount = current_user.wallet + @order.amount_cents / 100
+      current_user.update(wallet: amount)
+    end
   end
 end

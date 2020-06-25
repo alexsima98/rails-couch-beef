@@ -8,4 +8,8 @@ class TopupsController < ApplicationController
   def show
     @topup = Topup.find(params[:id])
   end
+
+  def create
+    @topup = Topup.new(topup_params)
+  end
 end

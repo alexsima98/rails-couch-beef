@@ -7,8 +7,13 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title"><%= topup.name %></h5>
-          <p>Amount: <%= humanized_money_with_symbol(topup.price) %></p>
+          <p>Amount:
+  <%= simple_form_for @topup do |f| %>
+              <%= f.input :amount, required: true, as: :float, hint: 'Please enter a multiplier of 0.25' %>
+            <% end %>
+            </p>
           <%= form_tag orders_path do %>
+
           <%= hidden_field_tag 'topup_id', topup.id %>
           <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
           <% end %>
