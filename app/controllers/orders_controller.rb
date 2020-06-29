@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
       cancel_url: order_url(order),
       payment_method_types: ['card'],
       line_items: [{
-        name: topup.name,
+        name: 'Topup',
         amount: topup.price_cents,
         currency: 'eur',
         quantity: 1
@@ -24,7 +24,7 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
-    @topup = Topup.find(params[topup_id])
+    @topup = Topup.find(params[:topup_id])
   end
 
   def show

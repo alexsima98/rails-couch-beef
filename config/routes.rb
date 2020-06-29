@@ -8,9 +8,9 @@ Rails.application.routes.draw do
 
   mount StripeEvent::Engine, at: '/stripe-webhooks'
 
-  resources :topups, only: [:index, :show]
+  resources :topups, only: [:index, :show, :new, :create]
 
-  resources :orders, only: [:show, :create] do
+  resources :orders, only: [:show, :new, :create] do
     resources :payments, only: :new
   end
 
@@ -34,5 +34,7 @@ Rails.application.routes.draw do
   patch '/score', to: "sessions#submit_score"
 
   patch '/agreed', to: "sessions#agreed"
+
+
 end
 

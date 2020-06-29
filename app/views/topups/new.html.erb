@@ -1,0 +1,18 @@
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6 col-md-4">
+      <div class="card">
+      <h3 class="text-center text-white">Top-up your account with funds</h3>
+        <div class="card-body">
+            <%= simple_form_for @topup do |f| %>
+              <%= f.input :price_cents, required: true, as: :float, label:"Amount in euros:", hint: 'Please enter a multiplier of 1' %>
+             <div class="d-flex justify-content-center">
+              <%= f.button :submit, "Add funds", class:"text-center btn btn-flat" %>
+            </div>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
